@@ -1,7 +1,8 @@
 # **Exploratory Data Analysis on Taxi Data**  
 <center>
 
-Drake Graham  
+Drake Graham
+<br>
 dgraham7362@gmail.com  
 
 </center>
