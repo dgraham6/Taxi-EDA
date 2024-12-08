@@ -19,6 +19,17 @@ I'm using the [Taxi Trips in 2024 in the District of Columbia dataset](https://c
 
 Although I've focused on this specific dataset, my pipeline is adaptable to similar datasets, ensuring it is not limited to this single dataset.
 
+## Map Visualization of Trip Origins  
+
+The map below displays the origins of a sample of 1,000 taxi trips in Washington, D.C., using marker points to represent the geographic distribution.  
+
+<iframe
+  src="assets/map_with_markers.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 ## More Data  
 
 Before diving deep into the taxi log data, we enhance our resources by retrieving hourly weather data using the [Open-Meteo API](https://open-meteo.com/) and performing a left merge with our taxi trip dataset. This additional weather data allows us to incorporate environmental factors, such as temperature, precipitation, and wind speed, that could impact travel times and driving conditions.  
