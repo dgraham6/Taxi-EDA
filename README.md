@@ -85,3 +85,5 @@ After removing the outliers, we can finally visualize what we aim to predict. By
   height="600"
   frameborder="0"
 ></iframe>
+
+By observing the distribution, we notice a significant number of trips with durations close to 0 seconds in our dataset. While very short taxi trips are possible, these are likely due to human errors, such as prematurely stopping and restarting trips. Apart from this anomaly, the distribution appears to be fairly symmetric and roughly normal, centered around 600 seconds (or 10 minutes). As the duration increases, there are a few scattered outliers, but the majority of the data fits within a consistent range.
