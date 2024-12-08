@@ -161,3 +161,105 @@ To ensure the model's predictions are realistic and feasible, we only use featur
 - **Geographic coordinates** are often known if the trip is pre-scheduled or provided via a ride-hailing app.  
 
 By adhering to these constraints, our model mimics real-world prediction scenarios and ensures that it is practical for use in applications like GPS software.
+
+## Baseline Model  
+
+To predict taxi trip durations, we developed a **baseline model** using a simple linear regression algorithm with a pipeline in `sklearn`. The pipeline ensures a systematic approach to preprocessing and training, making it easy to extend and refine later.
+
+### Features  
+We used two types of features in our baseline model:  
+
+1. **Quantitative Features** (Numerical):  
+   - Includes all numerical columns in the dataset.  
+   - **Preprocessing:** Missing values were imputed using the mean, and values were scaled using `StandardScaler` to normalize the feature distributions.  
+
+2. **Nominal Features** (Categorical):  
+   - Includes all non-numerical columns in the dataset.  
+   - **Preprocessing:** Missing values were imputed with the placeholder value `"Unknown"`, and one-hot encoding was applied to convert categories into binary indicators.  
+
+Features dropped from the dataset include:
+- `AIRPORT`, as it had too many missing or irrelevant values.  
+- `DURATION` and related columns like `log_duration`, since they are directly related to the target variable and would lead to data leakage.
+
+### Model Pipeline  
+The pipeline implemented the following steps:  
+1. **Preprocessing:**  
+   - Numerical features: Imputation and scaling.  
+   - Categorical features: Imputation and one-hot encoding.  
+2. **Regression Model:**  
+   - A simple **Linear Regression** model was chosen to establish a baseline.  
+
+### Evaluation Metric  
+We evaluated the model using **Root Mean Squared Logarithmic Error (RMSLE)** to measure performance. RMSLE is well-suited for our task because:  
+- It is robust to outliers.  
+- It emphasizes relative errors, making it appropriate for predicting highly skewed trip durations.  
+
+### Results and Analysis  
+After training the model on 80% of the dataset and testing on the remaining 20%, the baseline model achieved an **RMSLE score of 0.824**.  
+
+This score indicates that, on average, the model's predictions differ from the true values by a factor of approximately **2.28** (calculated as e^0.824). For instance, if the actual trip duration is 10 minutes, the model typically predicts a duration in the range of 4.39 minutes (10 ÷ 2.28) to 22.8 minutes (10 × 2.28).  
+
+This reflects the limitations of the baseline model, which used minimal feature engineering and preprocessing. While it provides a starting point for understanding the data, the RMSLE score highlights significant room for improvement in capturing the complexity of trip duration predictions.
+
+## Final Model  
+
+The **final model** improves upon the baseline by incorporating thoughtfully engineered features and leveraging hyperparameter tuning to refine performance.
+
+### New Features Added  
+
+1. **Geographic Center of Trips (Latitude and Longitude):**  
+   - **Reasoning:** This feature represents the midpoint between the origin and destination of each trip.  
+   - **Why it’s Good:**  
+     - Traffic congestion and road density are often centralized in urban areas. By adding the center point, the model can implicitly account for potential delays in high-traffic zones.
+     - This feature captures spatial information that a simple start and endpoint cannot convey.
+
+2. **Trip Direction (Categorical):**  
+   - **Reasoning:** Encodes the cardinal direction of the trip, such as NorthEast or SouthWest.  
+   - **Why it’s Good:**  
+     - Different directions may encounter varying traffic patterns and road conditions (e.g., trips heading downtown may face more congestion than trips leaving the city).
+     - Directional information helps the model learn spatial dependencies without directly relying on longitude and latitude differences.
+
+3. **Trip Distance (Haversine Formula):**  
+   - **Reasoning:** Calculates the great-circle distance between the origin and destination points.  
+   - **Why it’s Good:**  
+     - Distance directly correlates with trip duration; longer distances inherently take more time.
+     - The Haversine formula accounts for the curvature of the Earth, providing a precise measurement that is crucial for trips spanning large geographic areas.
+
+4. **Polynomial Features (Degree 2):**  
+   - **Reasoning:** Non-linear relationships exist between numerical features (e.g., distance and duration).  
+   - **Why it’s Good:**  
+     - The squared and interaction terms enable the model to capture non-linear patterns, such as how the duration might increase disproportionately with distance in high-congestion areas.
+     - For example, polynomial features allow the model to understand that the impact of traffic on short trips differs from its impact on longer trips.
+
+---
+
+### Modeling Algorithm and Hyperparameter Tuning  
+
+1. **Algorithm:**  
+   - The final model used **Linear Regression**.  
+   - **Why Linear Regression:**  
+     - It provides a transparent and interpretable baseline for understanding the effects of the new features.  
+     - Linear Regression pairs well with polynomial features, effectively capturing non-linear trends without the complexity of tree-based models.  
+
+2. **Hyperparameter Tuning:**  
+   - **Parameter Tuned:** Degree of polynomial features (`1, 2, 3`).  
+   - **Method:** Used `GridSearchCV` with 5-fold cross-validation to identify the optimal degree of polynomial features.  
+   - **Best Hyperparameter:** Degree = 2.  
+     - Higher degrees (e.g., 3) added unnecessary complexity without improving performance.  
+     - Degree 2 captured key non-linear relationships without overfitting.  
+
+---
+
+### Results and Analysis  
+
+- **Baseline Model:**  
+  - **RMSLE Score:** 0.824  
+  - **Limitations:** Relied on minimal preprocessing and did not incorporate domain-specific knowledge or non-linear relationships.  
+
+- **Final Model:**  
+  - **RMSLE Score:** 0.254 
+  - **Why the Improvement:**  
+    - New features such as distance, center, and direction added critical spatial and contextual information.  
+    - Polynomial features allowed the model to understand non-linear interactions, particularly between distance, time, and other trip-specific variables.  
+
+This improvement demonstrates the importance of thoughtful feature engineering and hyperparameter tuning in creating a model that better aligns with the real-world data generating process.
