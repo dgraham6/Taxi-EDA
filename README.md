@@ -87,3 +87,16 @@ After removing the outliers, we can finally visualize what we aim to predict. By
 ></iframe>
 
 By observing the distribution, we notice a significant number of trips with durations close to 0 seconds in our dataset. While very short taxi trips are possible, these are likely due to human errors, such as prematurely stopping and restarting trips. Apart from this anomaly, the distribution appears to be fairly symmetric and roughly normal, centered around 600 seconds (or 10 minutes). As the duration increases, there are a few scattered outliers, but the majority of the data fits within a consistent range.
+
+## Average Trip Duration by Day of the Week  
+
+Using the timestamp data and pandas' datetime features, we created a new column, `Day of the Week`, to categorize trips by the day they occurred. We then calculated the average trip duration (in minutes) for each day of the week.  
+
+The chart below illustrates the variation in trip durations throughout the week. This analysis can provide insights into how trip lengths vary on weekdays versus weekends.  
+
+<iframe
+  src="assets/avg_trip_duration_by_day.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
