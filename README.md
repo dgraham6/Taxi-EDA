@@ -25,8 +25,8 @@ The map below displays the origins of a sample of 1,000 taxi trips in Washington
 
 <iframe
   src="map_with_markers.html"
-  width="800"
-  height="600"
+  width="500"
+  height="400"
   frameborder="0"
 ></iframe>
 
@@ -75,6 +75,10 @@ A significant challenge in the dataset is the presence of numerous NaN values:
 3. **`AIRPORT`**  
    - Although the `AIRPORT` column contains many NaN values, it is a binary column. We can treat the NaN values as an indicator that the trip likely did not involve an airport.  
    - To validate this, we use the origin coordinates to calculate if the trip started near an airport. After applying this logic, we find that none of the trips in the dataset originated close to an airport, confirming our assumption to treat NaN values as "false."  
+
+4. **`ORIGINCITY`**  
+   -  Despite a significant portion of this column being NaN and inconsistencies in the input data, this dataset only includes taxi trips from Washington, D.C. Therefore, it is safe to ignore the 0.1% of trips outside the city.
+
 
 ### Outliers and Extreme Values  
 
