@@ -73,3 +73,15 @@ Another issue is the presence of extreme values in the `DURATION` and `DISTANCE`
 - Given that Washington, D.C., is approximately 50 miles wide, these outliers are highly unrealistic and can be safely removed due to their rarity.  
 
 By addressing these issues, we significantly improve the quality and reliability of the dataset, ensuring that it is ready for analysis.
+
+
+## Trip Duration Analysis  
+
+After removing the outliers, we can finally visualize what we aim to predict. By creating this graph, we can gain a better understanding of the distribution of trip durations in the dataset. Below is the resulting histogram:
+
+<iframe
+  src="duration_histogram.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
