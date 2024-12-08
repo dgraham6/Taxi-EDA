@@ -1,4 +1,4 @@
-# **Exploratory Data Analysis on Taxi Data**  
+# **Driven to Discover: An Exploratory Data Analysis of Taxi Trips**  
 <center>
 
 Drake Graham
