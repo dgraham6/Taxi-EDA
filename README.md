@@ -40,3 +40,36 @@ To further enrich our dataset, we use the [OSRM API](http://project-osrm.org/) t
 |         295.9 |        3659.3 |
 |         133.3 |        1647.7 |
 |         208.7 |        2348.6 |
+
+## Data Cleaning  
+
+When examining the dataset, we can immediately identify certain columns as irrelevant to the problem we aim to address. For example:  
+
+- `FAREAMOUNT`  
+- `GRATUITYAMOUNT`  
+- `PAYMENTTYPE`  
+
+These columns are either completely unrelated or simply functions of the trip duration. To narrow our focus, these columns can be safely dropped.  
+
+### Handling Missing Data  
+
+A significant challenge in the dataset is the presence of numerous NaN values:  
+
+1. **Coordinates of Origin and Destination**  
+   - If either the origin or destination coordinates are missing, there is no reliable way to impute these values. Since these data points are crucial for estimation, any rows with missing coordinates must be dropped entirely.  
+
+2. **`PROVIDERNAME`**  
+   - This column is entirely NaN. While this information might be valuable in other datasets, its absence here leads us to drop the column altogether.  
+
+3. **`AIRPORT`**  
+   - Although the `AIRPORT` column contains many NaN values, it is a binary column. We can treat the NaN values as an indicator that the trip likely did not involve an airport.  
+   - To validate this, we use the origin coordinates to calculate if the trip started near an airport. After applying this logic, we find that none of the trips in the dataset originated close to an airport, confirming our assumption to treat NaN values as "false."  
+
+### Outliers and Extreme Values  
+
+Another issue is the presence of extreme values in the `DURATION` and `DISTANCE` columns, likely caused by input errors.  
+
+- While short trips (e.g., 3 minutes) are plausible, a trip lasting over three days or spanning more than 50 miles is not.  
+- Given that Washington, D.C., is approximately 50 miles wide, these outliers are highly unrealistic and can be safely removed due to their rarity.  
+
+By addressing these issues, we significantly improve the quality and reliability of the dataset, ensuring that it is ready for analysis.
