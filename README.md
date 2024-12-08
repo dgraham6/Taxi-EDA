@@ -24,7 +24,7 @@ Although I've focused on this specific dataset, my pipeline is adaptable to simi
 The map below displays the origins of a sample of 1,000 taxi trips in Washington, D.C., using marker points to represent the geographic distribution.  
 
 <iframe
-  src="assets/map_with_markers.html"
+  src="map_with_markers.html"
   width="800"
   height="600"
   frameborder="0"
