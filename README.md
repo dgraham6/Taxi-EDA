@@ -255,7 +255,7 @@ The **final model** improves upon the baseline by incorporating thoughtfully eng
   - **Limitations:** Relied on minimal preprocessing and did not incorporate domain-specific knowledge or non-linear relationships.  
 
 - **Final Model:**  
-  - **RMSLE Score:** 0.254 
+  - **RMSLE Score:** 0.657 
   - **Why the Improvement:**  
     - New features such as distance, center, and direction added contextual information.  
     - Polynomial features allowed the model to understand non-linear interactions, particularly between distance, time, and other trip-specific variables.  
