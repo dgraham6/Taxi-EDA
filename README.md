@@ -125,13 +125,206 @@ The pivot table below highlights the relationship between these factors. For exa
 - Variations in average trip durations across the week.  
 - The influence of temperature on taxi trip behaviors.  
 
-|   ('avg_duration', 0) |   ('avg_temp', 0) |   ('total_mileage', 0) |   ('total_mileage', 1) |   ('total_mileage', 2) |   ('total_mileage', 3) |   ('total_mileage', 4) |   ('total_mileage', 5) |   ('total_mileage', 6) |   ('total_mileage', 7) |   ('total_mileage', 8) |   ('total_mileage', 9) |   ('total_mileage', 10) |   ('total_mileage', 11) |   ('total_mileage', 12) |   ('total_mileage', 13) |   ('total_mileage', 14) |   ('total_mileage', 15) |   ('total_mileage', 16) |   ('total_mileage', 17) |   ('total_mileage', 18) |   ('total_mileage', 19) |   ('total_mileage', 20) |   ('total_mileage', 21) |   ('total_mileage', 22) |   ('total_mileage', 23) |
-|----------------------:|------------------:|-----------------------:|-----------------------:|-----------------------:|-----------------------:|-----------------------:|-----------------------:|-----------------------:|-----------------------:|-----------------------:|-----------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|
-|                   732 |              19.9 |                   4.62 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |
-|                   934 |              19.9 |                   6.11 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |
-|                    81 |              19.9 |                   0    |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |
-|                   450 |              19.9 |                   1.76 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |
-|                  2228 |              19.9 |                   0.68 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                      0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |                       0 |
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pivot Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>avg_duration</th>
+                <th>avg_temp</th>
+                <th>total_mileage (0)</th>
+                <th>total_mileage (1)</th>
+                <th>total_mileage (2)</th>
+                <th>total_mileage (3)</th>
+                <th>total_mileage (4)</th>
+                <th>total_mileage (5)</th>
+                <th>total_mileage (6)</th>
+                <th>total_mileage (7)</th>
+                <th>total_mileage (8)</th>
+                <th>total_mileage (9)</th>
+                <th>total_mileage (10)</th>
+                <th>total_mileage (11)</th>
+                <th>total_mileage (12)</th>
+                <th>total_mileage (13)</th>
+                <th>total_mileage (14)</th>
+                <th>total_mileage (15)</th>
+                <th>total_mileage (16)</th>
+                <th>total_mileage (17)</th>
+                <th>total_mileage (18)</th>
+                <th>total_mileage (19)</th>
+                <th>total_mileage (20)</th>
+                <th>total_mileage (21)</th>
+                <th>total_mileage (22)</th>
+                <th>total_mileage (23)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>732</td>
+                <td>19.9</td>
+                <td>4.62</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>934</td>
+                <td>19.9</td>
+                <td>6.11</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>81</td>
+                <td>19.9</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>450</td>
+                <td>19.9</td>
+                <td>1.76</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2228</td>
+                <td>19.9</td>
+                <td>0.68</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
 ## Framing the Prediction Problem  
 
 As stated in the introduction, our goal is to leverage the data a taxi driver would feasibly have at the beginning of a trip to predict the total trip duration, without implementing custom routing algorithms. This aligns with how GPS software like Google Maps estimates trip durations.
