@@ -12,6 +12,47 @@ dgraham7362@gmail.com
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Title with Image</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #ccc;
+    }
+    .page-header img {
+      margin-bottom: 15px;
+    }
+    .page-header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+    }
+    .page-header h2 {
+      margin: 0;
+      font-size: 18px;
+      color: #666;
+    }
+    .btn {
+      text-decoration: none;
+      color: white;
+      background-color: #007bff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin: 5px;
+      font-size: 14px;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
   <header class="page-header" role="banner">
