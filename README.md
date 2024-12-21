@@ -7,6 +7,31 @@ dgraham7362@gmail.com
 
 </center>
 
+### Table of Contents
+1. [Introduction](#introduction)
+2. [Map Visualization of Trip Origins](#map-visualization-of-trip-origins)
+3. [More Data](#more-data)
+4. [Data Cleaning](#data-cleaning)
+   - [Handling Missing Data](#handling-missing-data)
+   - [Outliers and Extreme Values](#outliers-and-extreme-values)
+5. [Trip Duration Analysis](#trip-duration-analysis)
+6. [Average Trip Duration by Day and Hour](#average-trip-duration-by-day-and-hour)
+7. [Framing the Prediction Problem](#framing-the-prediction-problem)
+   - [Prediction Problem](#prediction-problem)
+   - [Evaluation Metric](#evaluation-metric)
+   - [Justification for Feature Selection](#justification-for-feature-selection)
+8. [Baseline Model](#baseline-model)
+   - [Features](#features)
+   - [Model Pipeline](#model-pipeline)
+   - [Evaluation Metric](#evaluation-metric)
+   - [Results and Analysis](#results-and-analysis)
+9. [Final Model](#final-model)
+   - [New Features Added](#new-features-added)
+   - [Modeling Algorithm and Hyperparameter Tuning](#modeling-algorithm-and-hyperparameter-tuning)
+   - [Results and Analysis](#results-and-analysis-1)
+
+---
+
 ## Introduction  
 
 Did you know you spend around <span style="color:red">37,935</span> hours of your life driving? According to this [estimate](https://www.tempo.io/blog/how-do-people-spend-their-time#:~:text=According%20to%20a%20study%20done%20by%20the%20Harvard%20health), the average American spends a significant amount of their short life driving. 
