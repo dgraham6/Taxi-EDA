@@ -6,12 +6,12 @@ Drake Graham
 dgraham7362@gmail.com  
 
 </center>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Title with Image</title>
+  <title>Title with Overlay</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -19,26 +19,29 @@ dgraham7362@gmail.com
       padding: 0;
     }
     .page-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      padding: 20px;
-      background-color: #f4f4f4;
-      border-bottom: 1px solid #ccc;
+      position: relative; /* Enable child elements to be positioned absolutely */
+      text-align: center;
+      color: white; /* Text color to contrast with the background image */
     }
     .page-header img {
-      margin-bottom: 15px;
+      width: 100%; /* Make the image responsive */
+      height: auto;
     }
-    .page-header h1 {
-      margin: 0;
-      font-size: 24px;
-      color: #333;
+    .content-overlay {
+      position: absolute; /* Overlay position */
+      top: 50%; /* Center vertically */
+      left: 50%; /* Center horizontally */
+      transform: translate(-50%, -50%); /* Adjust for exact centering */
+      text-align: center;
     }
-    .page-header h2 {
+    .project-name {
+      font-size: 32px;
+      font-weight: bold;
       margin: 0;
+    }
+    .project-tagline {
       font-size: 18px;
-      color: #666;
+      margin: 10px 0;
     }
     .btn {
       text-decoration: none;
@@ -48,6 +51,7 @@ dgraham7362@gmail.com
       border-radius: 4px;
       margin: 5px;
       font-size: 14px;
+      display: inline-block;
     }
     .btn:hover {
       background-color: #0056b3;
@@ -55,13 +59,15 @@ dgraham7362@gmail.com
   </style>
 </head>
 <body>
-  <header class="page-header" role="banner">
-    <img src="background.png" alt="Project Logo">
-    <h1 class="project-name">Project Title</h1>
-    <h2 class="project-tagline">This is the tagline or description of the project.</h2>
-    <a href="https://example.com" class="btn">View on GitHub</a>
-    <a href="https://example.com/download.zip" class="btn">Download .zip</a>
-    <a href="https://example.com/download.tar.gz" class="btn">Download .tar.gz</a>
+  <header class="page-header">
+    <img src="background.png" alt="Project Background">
+    <div class="content-overlay">
+      <h1 class="project-name">Project Title</h1>
+      <h2 class="project-tagline">This is the tagline or description of the project.</h2>
+      <a href="https://example.com" class="btn">View on GitHub</a>
+      <a href="https://example.com/download.zip" class="btn">Download .zip</a>
+      <a href="https://example.com/download.tar.gz" class="btn">Download .tar.gz</a>
+    </div>
   </header>
 </body>
 </html>
