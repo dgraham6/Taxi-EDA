@@ -20,7 +20,7 @@ dgraham7362@gmail.com
     #sidebar {
       width: 250px;
       position: fixed;
-      right: 0;
+      left: 0;
       top: 0;
       bottom: 0;
       background-color: #f4f4f4;
@@ -69,42 +69,12 @@ dgraham7362@gmail.com
   <h2>Table of Contents</h2>
   <ul>
     <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#map-visualization-of-trip-origins">Map Visualization of Trip Origins</a></li>
-    <li><a href="#more-data">More Data</a></li>
-    <li>
-      <a href="#data-cleaning">Data Cleaning</a>
-      <ul>
-        <li><a href="#handling-missing-data">Handling Missing Data</a></li>
-        <li><a href="#outliers-and-extreme-values">Outliers and Extreme Values</a></li>
-      </ul>
-    </li>
+    <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
+    <li><a href="#data-cleaning">Data Cleaning</a></li>
     <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
-    <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
-    <li>
-      <a href="#framing-the-prediction-problem">Framing the Prediction Problem</a>
-      <ul>
-        <li><a href="#prediction-problem">Prediction Problem</a></li>
-        <li><a href="#evaluation-metric">Evaluation Metric</a></li>
-        <li><a href="#justification-for-feature-selection">Justification for Feature Selection</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#baseline-model">Baseline Model</a>
-      <ul>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#model-pipeline">Model Pipeline</a></li>
-        <li><a href="#evaluation-metric">Evaluation Metric</a></li>
-        <li><a href="#results-and-analysis">Results and Analysis</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#final-model">Final Model</a>
-      <ul>
-        <li><a href="#new-features-added">New Features Added</a></li>
-        <li><a href="#modeling-algorithm-and-hyperparameter-tuning">Modeling Algorithm and Hyperparameter Tuning</a></li>
-        <li><a href="#results-and-analysis-1">Results and Analysis</a></li>
-      </ul>
-    </li>
+    <li><a href="#framing-the-prediction-problem">Prediction Problem</a></li>
+    <li><a href="#baseline-model">Baseline Model</a></li>
+    <li><a href="#final-model">Final Model</a></li>
   </ul>
 </div>
 
