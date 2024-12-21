@@ -28,8 +28,6 @@ dgraham7362@gmail.com
       border-bottom: 1px solid #ccc;
     }
     .page-header img {
-      max-width: 100px; /* Adjust size as needed */
-      border-radius: 50%; /* Makes it circular if the image is square */
       margin-bottom: 15px;
     }
     .page-header h1 {
