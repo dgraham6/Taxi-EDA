@@ -7,30 +7,119 @@ dgraham7362@gmail.com
 
 </center>
 
-### Table of Contents
-1. [Introduction](#introduction)
-2. [Map Visualization of Trip Origins](#map-visualization-of-trip-origins)
-3. [More Data](#more-data)
-4. [Data Cleaning](#data-cleaning)
-   - [Handling Missing Data](#handling-missing-data)
-   - [Outliers and Extreme Values](#outliers-and-extreme-values)
-5. [Trip Duration Analysis](#trip-duration-analysis)
-6. [Average Trip Duration by Day and Hour](#average-trip-duration-by-day-and-hour)
-7. [Framing the Prediction Problem](#framing-the-prediction-problem)
-   - [Prediction Problem](#prediction-problem)
-   - [Evaluation Metric](#evaluation-metric)
-   - [Justification for Feature Selection](#justification-for-feature-selection)
-8. [Baseline Model](#baseline-model)
-   - [Features](#features)
-   - [Model Pipeline](#model-pipeline)
-   - [Evaluation Metric](#evaluation-metric)
-   - [Results and Analysis](#results-and-analysis)
-9. [Final Model](#final-model)
-   - [New Features Added](#new-features-added)
-   - [Modeling Algorithm and Hyperparameter Tuning](#modeling-algorithm-and-hyperparameter-tuning)
-   - [Results and Analysis](#results-and-analysis-1)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collapsible Sidebar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #sidebar {
+      width: 250px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #f4f4f4;
+      overflow-y: auto;
+      padding: 10px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+      transform: translateX(-100%);
+    }
+    #sidebar.active {
+      transform: translateX(0);
+    }
+    #sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    #sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    #sidebar ul li {
+      margin: 5px 0;
+    }
+    #sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    #toggle-btn {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
 
----
+<button id="toggle-btn">☰ Table of Contents</button>
+
+<div id="sidebar">
+  <h2>Table of Contents</h2>
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#map-visualization-of-trip-origins">Map Visualization of Trip Origins</a></li>
+    <li><a href="#more-data">More Data</a></li>
+    <li>
+      <a href="#data-cleaning">Data Cleaning</a>
+      <ul>
+        <li><a href="#handling-missing-data">Handling Missing Data</a></li>
+        <li><a href="#outliers-and-extreme-values">Outliers and Extreme Values</a></li>
+      </ul>
+    </li>
+    <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
+    <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
+    <li>
+      <a href="#framing-the-prediction-problem">Framing the Prediction Problem</a>
+      <ul>
+        <li><a href="#prediction-problem">Prediction Problem</a></li>
+        <li><a href="#evaluation-metric">Evaluation Metric</a></li>
+        <li><a href="#justification-for-feature-selection">Justification for Feature Selection</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#baseline-model">Baseline Model</a>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#model-pipeline">Model Pipeline</a></li>
+        <li><a href="#evaluation-metric">Evaluation Metric</a></li>
+        <li><a href="#results-and-analysis">Results and Analysis</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#final-model">Final Model</a>
+      <ul>
+        <li><a href="#new-features-added">New Features Added</a></li>
+        <li><a href="#modeling-algorithm-and-hyperparameter-tuning">Modeling Algorithm and Hyperparameter Tuning</a></li>
+        <li><a href="#results-and-analysis-1">Results and Analysis</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-btn');
+  const sidebar = document.getElementById('sidebar');
+
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
+
 
 ## Introduction  
 
@@ -156,32 +245,13 @@ This table summarizes the **average trip duration (in minutes)** across differen
 
 This overview helps identify travel patterns and peak times, valuable for optimizing routes or resource allocation.
 
-| **Hour** | **Friday** | **Monday** | **Saturday** | **Sunday** | **Thursday** |
-|:--------:|:----------:|:----------:|:------------:|:----------:|:------------:|
-| 0        | 12.72      | 13.08      | 13.16        | 13.02      | 12.71        |
-| 1        | 12.48      | 12.64      | 12.99        | 12.86      | 12.32        |
-| 2        | 12.56      | 12.49      | 13.42        | 13.08      | 12.39        |
-| 3        | 12.19      | 12.25      | 12.45        | 12.33      | 11.71        |
-| 4        | 11.39      | 12.19      | 11.71        | 11.75      | 11.21        |
-| 5        | 10.42      | 10.85      | 11.39        | 11.49      | 9.29         |
-| 6        | 10.81      | 10.20      | 11.32        | 11.36      | 10.77        |
-| 7        | 11.27      | 11.51      | 11.35        | 10.59      | 11.93        |
-| 8        | 12.08      | 13.17      | 12.44        | 11.07      | 12.66        |
-| 9        | 13.61      | 13.72      | 13.61        | 12.08      | 13.80        |
-| 10       | 13.83      | 14.25      | 13.85        | 11.91      | 14.05        |
-| 11       | 14.40      | 14.90      | 12.79        | 12.32      | 14.43        |
-| 12       | 15.17      | 15.47      | 12.55        | 12.48      | 15.54        |
-| 13       | 15.25      | 15.33      | 13.21        | 12.73      | 15.75        |
-| 14       | 14.88      | 14.57      | 13.22        | 12.81      | 14.83        |
-| 15       | 14.71      | 14.20      | 13.62        | 12.84      | 14.57        |
-| 16       | 15.20      | 14.43      | 13.98        | 14.21      | 14.83        |
-| 17       | 15.18      | 14.10      | 14.32        | 14.38      | 14.67        |
-| 18       | 15.53      | 14.41      | 14.30        | 14.42      | 14.88        |
-| 19       | 16.33      | 15.26      | 14.52        | 14.14      | 15.94        |
-| 20       | 16.18      | 15.35      | 14.13        | 14.20      | 16.63        |
-| 21       | 15.56      | 14.82      | 14.00        | 13.52      | 16.95        |
-| 22       | 14.15      | 13.07      | 13.71        | 13.57      | 14.79        |
-| 23       | 13.23      | 12.05      | 13.05        | 13.16      | 13.22        |
+| **Day**       | **0**  | **1**  | **2**  | **3**  | **4**  | **5**  | **6**  | **7**  | **8**  | **9**  | **10** | **11** | **12** | **13** | **14** | **15** | **16** | **17** | **18** | **19** | **20** | **21** | **22** | **23** |
+|---------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| **Friday**    | 12.72  | 12.48  | 12.56  | 12.19  | 11.39  | 10.42  | 10.81  | 11.27  | 12.08  | 13.61  | 13.83  | 14.40  | 15.17  | 15.25  | 14.88  | 14.71  | 15.20  | 15.18  | 15.53  | 16.33  | 16.18  | 15.56  | 14.15  | 13.23  |
+| **Monday**    | 13.08  | 12.64  | 12.49  | 12.25  | 12.19  | 10.85  | 10.20  | 11.51  | 13.17  | 13.72  | 14.25  | 14.90  | 15.47  | 15.33  | 14.57  | 14.20  | 14.43  | 14.10  | 14.41  | 15.26  | 15.35  | 14.82  | 13.07  | 12.05  |
+| **Saturday**  | 13.16  | 12.99  | 13.42  | 12.45  | 11.71  | 11.39  | 11.32  | 11.35  | 12.44  | 13.61  | 13.85  | 12.79  | 12.55  | 13.21  | 13.22  | 13.62  | 13.98  | 14.32  | 14.30  | 14.52  | 14.13  | 14.00  | 13.71  | 13.05  |
+| **Sunday**    | 13.02  | 12.86  | 13.08  | 12.33  | 11.75  | 11.49  | 11.36  | 10.59  | 11.07  | 12.08  | 11.91  | 12.32  | 12.48  | 12.73  | 12.81  | 12.84  | 14.21  | 14.38  | 14.42  | 14.14  | 14.20  | 13.52  | 13.57  | 13.16  |
+| **Thursday**  | 12.71  | 12.32  | 12.39  | 11.71  | 11.21  |  9.29  | 10.77  | 11.93  | 12.66  | 13.80  | 14.05  | 14.43  | 15.54  | 15.75  | 14.83  | 14.57  | 14.83  | 14.67  | 14.88  | 15.94  | 16.63  | 16.95  | 14.79  | 13.22  |
 
 ## Framing the Prediction Problem  
 
