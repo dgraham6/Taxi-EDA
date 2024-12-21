@@ -1,12 +1,3 @@
-# **Driven to Discover: An Exploratory Data Analysis of Taxi Trips**  
-<center>
-
-Drake Graham
-<br>
-dgraham7362@gmail.com  
-
-</center>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,13 +10,15 @@ dgraham7362@gmail.com
       padding: 0;
     }
     .page-header {
-      position: relative; /* Enable child elements to be positioned absolutely */
+      position: relative;
+      width: 100%;
+      height: 100vh; /* Full viewport height */
+      background-image: url('background.png'); /* Set the image as background */
+      background-size: cover; /* Ensure the image covers the entire area */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Prevent tiling */
       text-align: center;
-      color: white; /* Text color to contrast with the background image */
-    }
-    .page-header img {
-      width: 100%; /* Make the image responsive */
-      height: auto;
+      color: white;
     }
     .content-overlay {
       position: absolute; /* Overlay position */
@@ -62,8 +55,9 @@ dgraham7362@gmail.com
   <header class="page-header">
     <img src="background.png" alt="Project Background">
     <div class="content-overlay">
-      <h1 class="project-name">Project Title</h1>
-      <h2 class="project-tagline">This is the tagline or description of the project.</h2>
+      <h1 class="Driven to Discover: An Exploratory Data Analysis of Taxi Trips">Project Title</h1>
+      <h2 class="project-tagline">Drake Graham</h2>
+      <h3 class="project-tagline">dgraham7362@gmail.com</h3>
       <a href="https://example.com" class="btn">View on GitHub</a>
       <a href="https://example.com/download.zip" class="btn">Download .zip</a>
       <a href="https://example.com/download.tar.gz" class="btn">Download .tar.gz</a>
