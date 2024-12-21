@@ -227,8 +227,8 @@ The chart below illustrates the variation in trip durations throughout the week.
 
 <iframe
   src="trip_count_by_day.html"
-  width="800"
-  height="600"
+  width="700"
+  height="400"
   frameborder="0"
 ></iframe>
 
