@@ -20,7 +20,7 @@ dgraham7362@gmail.com
     #sidebar {
       width: 250px;
       position: fixed;
-      left: 0;
+      right: 0;
       top: 0;
       bottom: 0;
       background-color: #f4f4f4;
