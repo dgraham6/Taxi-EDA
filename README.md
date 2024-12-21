@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full-Width Background</title>
+  <title>Title with Image</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -10,30 +10,28 @@
       padding: 0;
     }
     .page-header {
-      position: relative;
-      width: 100%;
-      height: 100vh; /* Full viewport height */
-      background-image: url('background.png'); /* Set the image as background */
-      background-size: cover; /* Ensure the image covers the entire area */
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Prevent tiling */
-      text-align: center;
-      color: black; /* Change text color to black */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-bottom: 1px solid #ccc;
     }
-    .content-overlay {
-      position: absolute;
-      top: 50%; /* Center vertically */
-      left: 50%; /* Center horizontally */
-      transform: translate(-50%, -50%);
+    .page-header img {
+      max-width: 100px; /* Adjust size as needed */
+      border-radius: 50%; /* Makes it circular if the image is square */
+      margin-bottom: 15px;
     }
-    .project-name {
-      font-size: 32px;
-      font-weight: bold;
+    .page-header h1 {
       margin: 0;
+      font-size: 24px;
+      color: #333;
     }
-    .project-tagline {
+    .page-header h2 {
+      margin: 0;
       font-size: 18px;
-      margin: 5px 0;
+      color: #666;
     }
     .btn {
       text-decoration: none;
@@ -43,7 +41,6 @@
       border-radius: 4px;
       margin: 5px;
       font-size: 14px;
-      display: inline-block;
     }
     .btn:hover {
       background-color: #0056b3;
@@ -51,19 +48,16 @@
   </style>
 </head>
 <body>
-  <header class="page-header">
-    <img src="background.png" alt="Project Background">
-    <div class="content-overlay">
-      <h1 class="project-name">Driven to Discover: An Exploratory Data Analysis of Taxi Trips</h1>
-      <h2 class="project-tagline">Drake Graham</h2>
-      <h3 class="project-tagline">dgraham7362@gmail.com</h3>
-      <a href="https://example.com" class="btn">View on GitHub</a>
-      <a href="https://example.com/download.zip" class="btn">Download .zip</a>
-      <a href="https://example.com/download.tar.gz" class="btn">Download .tar.gz</a>
-    </div>
+  <header class="page-header" role="banner">
+    <img src="background.png" alt="Project Logo">
+    <h1 class="project-name">Driven to Discover: An Exploratory Data Analysis of Taxi Trips</h1>
+    <h2 class="project-tagline">Drake Graham</h2>
+    <h3 class="project-tagline">dgraham7362@gmail.com.</h3>
+    <a href="hhttps://github.com/dgraham6/Taxi-EDA" class="btn">View on GitHub</a>
+    <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn">Linkedin</a>
   </header>
 </body>
-</html>
+</html> 
 
 <html lang="en">
 <head>
