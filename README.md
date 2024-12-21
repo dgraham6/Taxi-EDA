@@ -141,7 +141,7 @@ The map below displays the origins of a sample of 1,000 taxi trips in Washington
   <iframe
     src="map_with_markers.html"
     width="800"
-    height="600"
+    height="300"
     frameborder="0"
   ></iframe>
 </div>
