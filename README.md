@@ -61,23 +61,23 @@ The map below displays the origins of a sample of 1,000 taxi trips in Washington
 
 Before diving deep into the taxi log data, we enhance our resources by retrieving hourly weather data using the [Open-Meteo API](https://open-meteo.com/) and performing a left merge with our taxi trip dataset. This additional weather data allows us to incorporate environmental factors, such as temperature, precipitation, and wind speed, that could impact travel times and driving conditions. Below is the two columns that could be very helpful in predicting trip duration.
 
-|   precip(mm) |   snow(in) |
-|-------------:|-----------:|
-|        0.009 |          0 |
-|        0.009 |          0 |
-|        0.009 |          0 |
-|        0.009 |          0 |
-|        0.009 |          0 |
+|       date_time       |   precip(mm) |   snow(in) |
+|-----------------------|-------------:|-----------:|
+| 2024-01-01 00:00:00  |        0.009 |          0 |
+| 2024-01-01 01:00:00  |        0.009 |          0 |
+| 2024-01-01 02:00:00  |        0.009 |          0 |
+| 2024-01-01 03:00:00  |        0.009 |          0 |
+| 2024-01-01 04:00:00  |        0.009 |          0 |
 
 To further enrich our dataset, we use the [OSRM API](http://project-osrm.org/) to obtain predicted fastest routes and route distances for each trip. This provides a reference for evaluating how the actual taxi routes compare to the optimal routes in terms of distance and duration. By merging these external datasets, we have more data to help deepen our analysis.
 
-|   duration(s) |   distance(m) |
-|--------------:|--------------:|
-|         102.1 |        1000.2 |
-|         498.6 |        6198.7 |
-|         295.9 |        3659.3 |
-|         133.3 |        1647.7 |
-|         208.7 |        2348.6 |
+|   id  |   duration(s) |   distance(m) |
+|-------|--------------:|--------------:|
+|    1  |         102.1 |        1000.2 |
+|    2  |         498.6 |        6198.7 |
+|    3  |         295.9 |        3659.3 |
+|    4  |         133.3 |        1647.7 |
+|    5  |         208.7 |        2348.6 |
 
 ## Data Cleaning  
 
