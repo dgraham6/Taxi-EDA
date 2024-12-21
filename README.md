@@ -115,215 +115,27 @@ The chart below illustrates the variation in trip durations throughout the week.
   height="600"
   frameborder="0"
 ></iframe>
-## Pivot Table Analysis  
 
-To gain deeper insights into taxi trip behavior, we grouped the data by both the **Day of the Week** and the **Hour of Day**, examining aggregate statistics such as total mileage, average trip duration, and average temperature.  
+### README: Average Trip Duration by Day and Hour
 
-The pivot table below highlights the relationship between these factors. For example, we can observe:  
+This table summarizes the **average trip duration (in minutes)** across different days of the week and hours of the day (0–23). Each row represents a specific day, and each column corresponds to an hour.
 
-- Peak travel hours and their corresponding mileage.  
-- Variations in average trip durations across the week.  
-- The influence of temperature on taxi trip behaviors.  
+#### Key Highlights:
+- **Peak Hours**: Longer durations are observed during daytime and evening hours, reflecting higher traffic or demand.
+- **Day-to-Day Trends**:
+  - **Weekends (Saturday, Sunday)**: Slightly longer average durations during midday.
+  - **Weekdays**: Evening hours (e.g., 16–19) show increased durations, especially Thursday and Tuesday.
+- **Early Hours**: Minimal durations across all days between 0–5 hours.
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pivot Table</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
-        th, td {
-            padding: 8px;
-            border: 1px solid #ddd;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-    </style>
-</head>
-<body>
-    <table>
-        <thead>
-            <tr>
-                <th>avg_duration</th>
-                <th>avg_temp</th>
-                <th>total_mileage (0)</th>
-                <th>total_mileage (1)</th>
-                <th>total_mileage (2)</th>
-                <th>total_mileage (3)</th>
-                <th>total_mileage (4)</th>
-                <th>total_mileage (5)</th>
-                <th>total_mileage (6)</th>
-                <th>total_mileage (7)</th>
-                <th>total_mileage (8)</th>
-                <th>total_mileage (9)</th>
-                <th>total_mileage (10)</th>
-                <th>total_mileage (11)</th>
-                <th>total_mileage (12)</th>
-                <th>total_mileage (13)</th>
-                <th>total_mileage (14)</th>
-                <th>total_mileage (15)</th>
-                <th>total_mileage (16)</th>
-                <th>total_mileage (17)</th>
-                <th>total_mileage (18)</th>
-                <th>total_mileage (19)</th>
-                <th>total_mileage (20)</th>
-                <th>total_mileage (21)</th>
-                <th>total_mileage (22)</th>
-                <th>total_mileage (23)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>732</td>
-                <td>19.9</td>
-                <td>4.62</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>934</td>
-                <td>19.9</td>
-                <td>6.11</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>81</td>
-                <td>19.9</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>450</td>
-                <td>19.9</td>
-                <td>1.76</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>2228</td>
-                <td>19.9</td>
-                <td>0.68</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-                <td>0</td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-</html>
+This overview helps identify travel patterns and peak times, valuable for optimizing routes or resource allocation.
+
+|   ('avg_duration_m', 0) |   ('avg_duration_m', 1) |   ('avg_duration_m', 2) |   ('avg_duration_m', 3) |   ('avg_duration_m', 4) |   ('avg_duration_m', 5) |   ('avg_duration_m', 6) |   ('avg_duration_m', 7) |   ('avg_duration_m', 8) |   ('avg_duration_m', 9) |   ('avg_duration_m', 10) |   ('avg_duration_m', 11) |   ('avg_duration_m', 12) |   ('avg_duration_m', 13) |   ('avg_duration_m', 14) |   ('avg_duration_m', 15) |   ('avg_duration_m', 16) |   ('avg_duration_m', 17) |   ('avg_duration_m', 18) |   ('avg_duration_m', 19) |   ('avg_duration_m', 20) |   ('avg_duration_m', 21) |   ('avg_duration_m', 22) |   ('avg_duration_m', 23) |
+|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:|-------------------------:|
+|                 12.7179 |                 12.4794 |                 12.5593 |                 12.1917 |                 11.3927 |                10.416   |                 10.8067 |                 11.267  |                 12.0751 |                 13.6097 |                  13.8255 |                  14.4038 |                  15.1734 |                  15.2504 |                  14.879  |                  14.7095 |                  15.1977 |                  15.1781 |                  15.5277 |                  16.3254 |                  16.1805 |                  15.5562 |                  14.1487 |                  13.2347 |
+|                 13.0846 |                 12.6422 |                 12.4913 |                 12.2455 |                 12.188  |                10.8468  |                 10.2012 |                 11.5112 |                 13.1696 |                 13.7212 |                  14.2515 |                  14.8965 |                  15.4658 |                  15.3325 |                  14.5698 |                  14.2005 |                  14.4308 |                  14.102  |                  14.4135 |                  15.2634 |                  15.3514 |                  14.8236 |                  13.0702 |                  12.0494 |
+|                 13.163  |                 12.9861 |                 13.4249 |                 12.4514 |                 11.7086 |                11.3899  |                 11.32   |                 11.3526 |                 12.438  |                 13.6135 |                  13.8502 |                  12.7888 |                  12.5502 |                  13.2118 |                  13.2222 |                  13.6213 |                  13.9759 |                  14.321  |                  14.298  |                  14.5156 |                  14.1308 |                  13.9997 |                  13.7053 |                  13.0471 |
+|                 13.0245 |                 12.8558 |                 13.0767 |                 12.3335 |                 11.75   |                11.488   |                 11.357  |                 10.5876 |                 11.0737 |                 12.0782 |                  11.9144 |                  12.3157 |                  12.4802 |                  12.7337 |                  12.8096 |                  12.8448 |                  14.2094 |                  14.3766 |                  14.4174 |                  14.1365 |                  14.2046 |                  13.5239 |                  13.5719 |                  13.1609 |
+|                 12.713  |                 12.3152 |                 12.3896 |                 11.7107 |                 11.2123 |                 9.29491 |                 10.7695 |                 11.9343 |                 12.6574 |                 13.8022 |                  14.049  |                  14.4333 |                  15.5418 |                  15.7496 |                  14.8279 |                  14.5661 |                  14.8347 |                  14.6657 |                  14.8819 |                  15.9361 |                  16.6333 |                  16.9497 |                  14.7856 |                  13.2209 |
 
 ## Framing the Prediction Problem  
 
