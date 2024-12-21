@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Title with Overlay</title>
+  <title>Full-Width Background</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -18,14 +18,13 @@
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Prevent tiling */
       text-align: center;
-      color: white;
+      color: black; /* Change text color to black */
     }
     .content-overlay {
-      position: absolute; /* Overlay position */
+      position: absolute;
       top: 50%; /* Center vertically */
       left: 50%; /* Center horizontally */
-      transform: translate(-50%, -50%); /* Adjust for exact centering */
-      text-align: center;
+      transform: translate(-50%, -50%);
     }
     .project-name {
       font-size: 32px;
@@ -34,7 +33,7 @@
     }
     .project-tagline {
       font-size: 18px;
-      margin: 10px 0;
+      margin: 5px 0;
     }
     .btn {
       text-decoration: none;
@@ -55,7 +54,7 @@
   <header class="page-header">
     <img src="background.png" alt="Project Background">
     <div class="content-overlay">
-      <h1 class="Driven to Discover: An Exploratory Data Analysis of Taxi Trips">Project Title</h1>
+      <h1 class="project-name">Driven to Discover: An Exploratory Data Analysis of Taxi Trips</h1>
       <h2 class="project-tagline">Drake Graham</h2>
       <h3 class="project-tagline">dgraham7362@gmail.com</h3>
       <a href="https://example.com" class="btn">View on GitHub</a>
