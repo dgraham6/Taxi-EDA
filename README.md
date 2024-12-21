@@ -7,7 +7,6 @@ dgraham7362@gmail.com
 
 </center>
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
