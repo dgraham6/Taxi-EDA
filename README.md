@@ -14,50 +14,54 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding: 20px;
-      background-color: #f4f4f4;
-      border-bottom: 1px solid #ccc;
-    }
-    .page-header img {
-      max-width: 100px; /* Adjust size as needed */
-      border-radius: 50%; /* Makes it circular if the image is square */
-      margin-bottom: 15px;
+      padding: 50px 20px;
+      background-image: url('background.png'); /* Set the background image */
+      background-size: cover; /* Make the image cover the entire area */
+      background-position: center; /* Center the image */
+      background-repeat: no-repeat; /* Prevent repeating the image */
+      color: white; /* Adjust text color for visibility */
+      text-align: center; /* Center text inside the header */
     }
     .page-header h1 {
       margin: 0;
-      font-size: 24px;
-      color: #333;
+      font-size: 32px;
+      color: white;
     }
     .page-header h2 {
-      margin: 0;
-      font-size: 18px;
-      color: #666;
+      margin: 5px 0;
+      font-size: 20px;
+      color: #ccc;
+    }
+    .page-header h3 {
+      margin: 5px 0;
+      font-size: 16px;
+      color: #ccc;
     }
     .btn {
       text-decoration: none;
       color: white;
-      background-color: #007bff;
+      background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent button background */
       padding: 8px 12px;
       border-radius: 4px;
       margin: 5px;
       font-size: 14px;
     }
     .btn:hover {
-      background-color: #0056b3;
+      background-color: rgba(0, 86, 179, 0.8); /* Adjust hover background color */
     }
   </style>
 </head>
 <body>
   <header class="page-header" role="banner">
-    <img src="background.png" alt="Project Logo">
     <h1 class="project-name">Driven to Discover: An Exploratory Data Analysis of Taxi Trips</h1>
     <h2 class="project-tagline">Drake Graham</h2>
-    <h3 class="project-tagline">dgraham7362@gmail.com.</h3>
-    <a href="hhttps://github.com/dgraham6/Taxi-EDA" class="btn">View on GitHub</a>
-    <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn">Linkedin</a>
+    <h3 class="project-tagline">dgraham7362@gmail.com</h3>
+    <a href="https://github.com/dgraham6/Taxi-EDA" class="btn">View on GitHub</a>
+    <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn">LinkedIn</a>
   </header>
 </body>
-</html> 
+</html>
+
 
 <html lang="en">
 <head>
@@ -173,7 +177,7 @@ Before diving deep into the taxi log data, we enhance our resources by retrievin
 
 To further enrich our dataset, we use the [OSRM API](http://project-osrm.org/) to obtain predicted fastest routes and route distances for each trip. This provides a reference for evaluating how the actual taxi routes compare to the optimal routes in terms of distance and duration. By merging these external datasets, we have more data to help deepen our analysis.(2)
 
-              (1)                                                                                (2)
+(1)                                                                                (2)
               |       date_time       |   precip(mm) |   snow(in) |                              |   id  |   duration(s) |   distance(m) |
               |-----------------------|-------------:|-----------:|                              |-------|--------------:|--------------:|
               | 2024-01-01 00:00:00  |        0.009 |          0 |                               |    1  |         102.1 |        1000.2 |
