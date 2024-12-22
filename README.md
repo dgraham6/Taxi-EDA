@@ -16,7 +16,7 @@
       flex-direction: column;
       padding: 50px 20px;
       background-image: url('back3.jpeg'); /* Set the background image */
-      background-size: 150%; /* Adjust this percentage for zoom */
+      background-size: 100%; /* Adjust this percentage for zoom */
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Prevent repeating the image */
       text-align: center; /* Center text inside the header */
@@ -53,12 +53,14 @@
   </style>
 </head>
 <body>
-  <div class="page-header">
-    <h1>Main Title</h1>
-    <h2>Subtitle Here</h2>
-    <h3>Another Subtitle</h3>
-    <a href="#" class="btn">Click Me</a>
-  </div>
+<body>
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Driven to Discover: An Exploratory Data Analysis of Taxi Trips</h1>
+    <h2 class="project-tagline">Drake Graham</h2>
+    <h3 class="project-tagline">dgraham7362@gmail.com</h3>
+    <a href="https://github.com/dgraham6/Taxi-EDA" class="btn">View on GitHub</a>
+    <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn">LinkedIn</a>
+  </header>
 </body>
 </html>
 
