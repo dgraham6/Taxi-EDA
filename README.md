@@ -15,27 +15,28 @@
       justify-content: center;
       flex-direction: column;
       padding: 50px 20px;
-      background-image: url('back2.jpeg'); /* Set the background image */
+      background-image: url('washington-dc-area-map-1764.jpg.avif'); /* Set the background image */
       background-size: cover; /* Make the image cover the entire area */
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Prevent repeating the image */
-      color: black; /* Adjust text color for visibility */
       text-align: center; /* Center text inside the header */
     }
-    .page-header h1 {
+    .page-header h1, .page-header h2, .page-header h3 {
       margin: 0;
+      color: black; /* Set headers to black */
+    }
+    .page-header h1 {
       font-size: 32px;
-      color: black;
     }
     .page-header h2 {
       margin: 5px 0;
       font-size: 20px;
-      color: #ccc;
+      color: #ccc; /* Use a softer color for h2 */
     }
     .page-header h3 {
       margin: 5px 0;
       font-size: 16px;
-      color: #ccc;
+      color: #ccc; /* Use a softer color for h3 */
     }
     .btn {
       text-decoration: none;
@@ -61,7 +62,6 @@
   </header>
 </body>
 </html>
-
 
 <html lang="en">
 <head>
@@ -177,7 +177,6 @@ Before diving deep into the taxi log data, we enhance our resources by retrievin
 
 To further enrich our dataset, we use the [OSRM API](http://project-osrm.org/) to obtain predicted fastest routes and route distances for each trip. This provides a reference for evaluating how the actual taxi routes compare to the optimal routes in terms of distance and duration. By merging these external datasets, we have more data to help deepen our analysis.(2)
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
