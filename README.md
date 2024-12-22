@@ -177,14 +177,125 @@ Before diving deep into the taxi log data, we enhance our resources by retrievin
 
 To further enrich our dataset, we use the [OSRM API](http://project-osrm.org/) to obtain predicted fastest routes and route distances for each trip. This provides a reference for evaluating how the actual taxi routes compare to the optimal routes in terms of distance and duration. By merging these external datasets, we have more data to help deepen our analysis.(2)
 
-(1)                                                                                (2)
-              |       date_time       |   precip(mm) |   snow(in) |                              |   id  |   duration(s) |   distance(m) |
-              |-----------------------|-------------:|-----------:|                              |-------|--------------:|--------------:|
-              | 2024-01-01 00:00:00  |        0.009 |          0 |                               |    1  |         102.1 |        1000.2 |
-              | 2024-01-01 01:00:00  |        0.009 |          0 |                               |    2  |         498.6 |        6198.7 |
-              | 2024-01-01 02:00:00  |        0.009 |          0 |                               |    3  |         295.9 |        3659.3 |
-              | 2024-01-01 03:00:00  |        0.009 |          0 |                               |    4  |         133.3 |        1647.7 |
-              | 2024-01-01 04:00:00  |        0.009 |          0 |                               |    5  |         208.7 |        2348.6 |
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side-by-Side Tables</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .tables-container {
+      display: flex;
+      justify-content: space-between; /* Add space between the tables */
+      gap: 20px; /* Adjust spacing between the tables */
+    }
+    table {
+      border-collapse: collapse;
+      width: 45%; /* Adjust width for better fit */
+      margin: 0 auto;
+      border: 1px solid #ccc;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      text-align: center;
+      padding: 8px;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    caption {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="tables-container">
+    <!-- First Table -->
+    <table>
+      <caption>Table 1</caption>
+      <thead>
+        <tr>
+          <th>date_time</th>
+          <th>precip(mm)</th>
+          <th>snow(in)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2024-01-01 00:00:00</td>
+          <td>0.009</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>2024-01-01 01:00:00</td>
+          <td>0.009</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>2024-01-01 02:00:00</td>
+          <td>0.009</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>2024-01-01 03:00:00</td>
+          <td>0.009</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>2024-01-01 04:00:00</td>
+          <td>0.009</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Second Table -->
+    <table>
+      <caption>Table 2</caption>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>duration(s)</th>
+          <th>distance(m)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>102.1</td>
+          <td>1000.2</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>498.6</td>
+          <td>6198.7</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>295.9</td>
+          <td>3659.3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>133.3</td>
+          <td>1647.7</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>208.7</td>
+          <td>2348.6</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
 
 
 ## Data Cleaning  
