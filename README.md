@@ -15,7 +15,7 @@
       justify-content: center;
       flex-direction: column;
       padding: 50px 20px;
-      background-image: url('WebsitePDF_New_36x48_CityWide_StreetMap_75.pdf'); /* Set the background image */
+      background-image: url('back3.jpeg'); /* Set the background image */
       background-size: cover; /* Make the image cover the entire area */
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Prevent repeating the image */
