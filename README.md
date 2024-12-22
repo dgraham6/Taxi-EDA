@@ -15,17 +15,17 @@
       justify-content: center;
       flex-direction: column;
       padding: 50px 20px;
-      background-image: url('background.png'); /* Set the background image */
+      background-image: url('back2.jpeg'); /* Set the background image */
       background-size: cover; /* Make the image cover the entire area */
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Prevent repeating the image */
-      color: white; /* Adjust text color for visibility */
+      color: black; /* Adjust text color for visibility */
       text-align: center; /* Center text inside the header */
     }
     .page-header h1 {
       margin: 0;
       font-size: 32px;
-      color: white;
+      color: black;
     }
     .page-header h2 {
       margin: 5px 0;
@@ -39,7 +39,7 @@
     }
     .btn {
       text-decoration: none;
-      color: white;
+      color: black;
       background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent button background */
       padding: 8px 12px;
       border-radius: 4px;
@@ -251,7 +251,7 @@ The chart below illustrates the variation in trip durations throughout the week.
   frameborder="0"
 ></iframe>
 
-### README: Average Trip Duration by Day and Hour
+## Average Trip Duration by Day and Hour
 
 This table summarizes the **average trip duration (in minutes)** across different days of the week and hours of the day (0–23). Each row represents a specific day, and each column corresponds to an hour.
 
