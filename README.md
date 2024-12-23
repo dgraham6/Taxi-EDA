@@ -16,7 +16,7 @@
       flex-direction: column;
       padding: 50px 20px;
       background-image: url('back3.jpeg'); /* Set the background image */
-      background-size: 40%; /* Adjust this percentage for zoom */
+      background-size: 100%; /* Adjust this percentage for zoom */
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Prevent repeating the image */
       text-align: center; /* Center text inside the header */
