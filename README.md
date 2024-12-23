@@ -73,7 +73,7 @@
       font-family: Arial, sans-serif;
     }
     #sidebar {
-      width: 250px;
+      width: 220px;
       position: fixed;
       left: 0;
       top: 0;
