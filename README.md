@@ -255,8 +255,6 @@ To further enrich our dataset, we use the [OSRM API](http://project-osrm.org/) t
         </tr>
       </tbody>
     </table>
-
-    <!-- Second Table -->
     <table>
       <caption>Table 2</caption>
       <thead>
