@@ -58,8 +58,9 @@
     <h1 class="project-name">Driven to Discover: An Exploratory Data Analysis of Taxi Trips</h1>
     <h2 class="project-tagline">Drake Graham</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
-    <a href="https://github.com/dgraham6/Taxi-EDA" class="btn">View on GitHub</a>
-    <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn">LinkedIn</a>
+    <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: green; color: black;">View on GitHub</a>
+    <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: green; color: black;">LinkedIn</a>
+
   </header>
 </body>
 </html>
