@@ -55,7 +55,7 @@
 <body>
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham1</h2>
+    <h2 class="project-tagline">Drake Graham</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -67,86 +67,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collapsible Sidebar with Table of Contents</title>
+  <title>Pop-Up Table of Contents</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
-
-    /* Sidebar styles */
-    #sidebar {
-      width: 250px;
+    sidebar {
       position: fixed;
-      left: -250px; /* Initially hidden */
       top: 0;
-      bottom: 0;
+      left: -250px; /* Initially hidden */
+      width: 250px;
+      height: 100%;
       background-color: #f4f4f4;
-      overflow-y: auto;
-      padding: 20px;
       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease-in-out;
-      transform: translateX(-100%);
+      overflow-y: auto;
+      padding: 10px;
+      transition: left 0.3s ease;
       z-index: 1000;
     }
-
-    #sidebar.active {
-      transform: translateX(0); /* Slide in when active */
+    sidebar.open {
+      left: 0; 
     }
-
-    #sidebar h2 {
+    sidebar h2 {
       font-size: 18px;
       margin-bottom: 10px;
     }
-
-    #sidebar ul {
+    sidebar ul {
       list-style: none;
       padding: 0;
     }
-
-    #sidebar ul li {
+    sidebar ul li {
       margin: 5px 0;
     }
-
-    #sidebar ul li a {
+    sidebar ul li a {
       text-decoration: none;
       color: #333;
     }
-
-    #sidebar ul li a:hover {
+    sidebar ul li a:hover {
       color: #007bff;
     }
-
-    #sidebar ul ul {
+    sidebar ul ul {
       margin-left: 20px;
       font-size: 14px; /* Make subcategories smaller */
     }
-
-    /* Toggle button styles */
-    #toggle-btn {
+    .open-btn {
       position: fixed;
-      top: 10px;
-      left: 10px;
-      background-color: #333;
-      color: #fff;
+      top: 20px;
+      left: 20px;
+      background-color: #007bff;
+      color: white;
       border: none;
       padding: 10px 15px;
+      border-radius: 4px;
       cursor: pointer;
       z-index: 1001;
     }
-
-    #toggle-btn:hover {
-      background-color: #555;
+    .open-btn:hover {
+      background-color: #0056b3;
+    }
+    .close-btn {
+      display: block;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+    .close-btn button {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #333;
+    }
+    .close-btn button:hover {
+      color: #007bff;
     }
   </style>
 </head>
 <body>
-  <!-- Toggle button to open/close the sidebar -->
-  <button id="toggle-btn">☰ Table of Contents</button>
+  <button class="open-btn" onclick="toggleSidebar()">☰ Open Table of Contents</button>
 
-  <!-- Sidebar content -->
   <div id="sidebar">
+    <div class="close-btn">
+      <button onclick="toggleSidebar()">✖</button>
+    </div>
     <h2>Table of Contents</h2>
     <ul>
       <li><a href="#introduction">Introduction</a></li>
@@ -176,20 +180,14 @@
       <li><a href="#final-predictions-and-conclusion">Final Predictions and Conclusion</a></li>
     </ul>
   </div>
-
   <script>
-    // Toggle the sidebar visibility
-    const toggleBtn = document.getElementById('toggle-btn');
-    const sidebar = document.getElementById('sidebar');
-
-    toggleBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-    });
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
   </script>
 </body>
 </html>
-
-
                                            line Model</a></li>
         <li><a href="#final-model">Final Model</a></li>
       </ul>
