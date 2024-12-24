@@ -55,7 +55,7 @@
 <body>
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham13</h2>
+    <h2 class="project-tagline">Drake Graham14</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -149,7 +149,10 @@
     <li><a href="#final-predictions-and-conclusion">Final Predictions and Conclusion</a></li>
   </ul>
 </div>
+</body>
+</html>
 
+<html lang="en">
 <script>
 const toggleBtn = document.getElementById('toggle-btn');
 const sidebar = document.getElementById('sidebar');
@@ -165,9 +168,8 @@ toggleBtn.addEventListener('click', () => {
 
 </script>
 
-</body>
 </html>
-                                           line Model</a></li>
+                                        line Model</a></li>
         <li><a href="#final-model">Final Model</a></li>
       </ul>
       <li><a href="#final-predictions-and-conclusion">Final Predictions and Conclusion</a></li>
