@@ -62,61 +62,6 @@
   </header>
 </body>
 </html>
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collapsible Sidebar</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    #sidebar {
-      width: 220px;
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      background-color: #f4f4f4;
-      overflow-y: auto;
-      padding: 10px;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease-in-out;
-      transform: translateX(-100%);
-    }
-    #sidebar.active {
-      transform: translateX(0);
-    }
-    #sidebar h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    #sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-    #sidebar ul li {
-      margin: 5px 0;
-    }
-    #sidebar ul li a {
-      text-decoration: none;
-      color: #333;
-    }
-    #toggle-btn {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      background-color: #333;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-  </style>
-</head>
-</html>
 
 <html lang="en">
 <head>
