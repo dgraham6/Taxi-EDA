@@ -124,12 +124,31 @@
   <h2>Table of Contents</h2>
   <ul>
     <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
+    <ul>
+        <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
+        <li><a href="#dataset-overview">Dataset Overview</a></li>
+    </ul>
+    <li><a href="#external-data">External Data</a></li>
     <li><a href="#data-cleaning">Data Cleaning</a></li>
-    <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
-    <li><a href="#framing-the-prediction-problem">Prediction Problem</a></li>
-    <li><a href="#baseline-model">Baseline Model</a></li>
-    <li><a href="#final-model">Final Model</a></li>
+    <ul>
+        <li><a href="#handling-missing-data">Missing Data</a></li>
+        <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
+    </ul>
+    <li><a href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
+    <ul>
+        <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
+        <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the week</a></li>
+        <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
+    </ul> 
+    <li><a href="#feature-engineering">Feature Engineering</a></li>
+    <li><a href="#evaluation-metric">Evaluation Metric </a></li>
+    <li><a href="#model-training">Model Training</a></li>
+    <ul>
+        <li><a href="#baseline-model">Baseline Model</a></li>
+        <li><a href="#model-selection">Model Selection</a></li>
+        <li><a href="#final-model">Final Model</a></li>
+    </ul>
+     <li><a href="#final-predictions-and-conclusion">Final Predictions and Conclusion</a></li>
   </ul>
 </div>
 
@@ -146,7 +165,7 @@
 </html>
 
 
-## Introduction  
+# Introduction  
 
 Did you know you spend around <span style="color:red">37,935</span> hours of your life driving? According to this [estimate](https://www.tempo.io/blog/how-do-people-spend-their-time#:~:text=According%20to%20a%20study%20done%20by%20the%20Harvard%20health), the average American spends a significant amount of their short life driving. 
 
@@ -165,7 +184,7 @@ A baseline regression model was developed using simple features and minimal prep
 Lastly, we briefly consider framing the problem as a classification challenge, offering additional perspectives for future work. This notebook concludes with the deployment of a refined XGBoost model to achieve a balance between complexity and prediction accuracy.
 ingle dataset.
 
-## Map Visualization of Trip Origins  
+### Map Visualization of Trip Origins  
 
 The map below displays the origins of a sample of 1,000 taxi trips in Washington, D.C., using marker points to represent the geographic distribution.  
 
@@ -178,9 +197,9 @@ The map below displays the origins of a sample of 1,000 taxi trips in Washington
   ></iframe>
 </div>
 
-## Data set Overview
+### Data set Overview
 
-## More Data  
+### External Data  
 
 Before diving deep into the taxi log data, we enhance our resources by retrieving hourly weather data using the [Open-Meteo API](https://open-meteo.com/) and performing a left merge with our taxi trip dataset. This additional weather data allows us to incorporate environmental factors, such as temperature, precipitation, and wind speed, that could impact travel times and driving conditions. Below is the two columns that could be very helpful in predicting trip duration.(1)
 
@@ -303,8 +322,7 @@ To further enrich our dataset, we use the [OSRM API](http://project-osrm.org/) t
 </body>
 </html>
 
-
-## Data Cleaning  
+# Data Cleaning
 
 When examining the dataset, we can immediately identify certain columns as irrelevant to the problem we aim to address. For example:  
 
@@ -342,7 +360,9 @@ Another issue is the presence of extreme values in the `DURATION` and `DISTANCE`
 By addressing these issues, we significantly improve the quality and reliability of the dataset, ensuring that it is ready for analysis.
 
 
-## Trip Duration Analysis  
+# Exploratory Data Analysis
+
+### Trip Duration Analysis  
 
 After removing the outliers, we can finally visualize what we aim to predict. By creating this graph, we can gain a better understanding of the distribution of trip durations in the dataset. Below is the resulting histogram:
 
@@ -355,7 +375,7 @@ After removing the outliers, we can finally visualize what we aim to predict. By
 
 By observing the distribution, we notice a significant number of trips with durations close to 0 seconds in our dataset. While very short taxi trips are possible, these are likely due to human errors, such as prematurely stopping and restarting trips. Apart from this anomaly, the distribution appears to be fairly symmetric and roughly normal, centered around 600 seconds (or 10 minutes). As the duration increases, there are a few scattered outliers, but the majority of the data fits within a consistent range.
 
-## Average Trip Duration by Day of the Week  
+### Average Trip Duration by Day of the Week  
 
 Using the timestamp data and pandas' datetime features, we created a new column, `Day of the Week`, to categorize trips by the day they occurred. We then calculated the average trip duration (in minutes) for each day of the week.  
 
@@ -368,11 +388,11 @@ The chart below illustrates the variation in trip durations throughout the week.
   frameborder="0"
 ></iframe>
 
-## Average Trip Duration by Day and Hour
+### Average Trip Duration by Day and Hour
 
 This table summarizes the **average trip duration (in minutes)** across different days of the week and hours of the day (0–23). Each row represents a specific day, and each column corresponds to an hour.
 
-#### Key Highlights:
+Observations:
 - **Peak Hours**: Longer durations are observed during daytime and evening hours, reflecting higher traffic or demand.
 - **Day-to-Day Trends**:
   - **Weekends (Saturday, Sunday)**: Slightly longer average durations during midday.
@@ -389,13 +409,33 @@ This overview helps identify travel patterns and peak times, valuable for optimi
 | **Sunday**    | 13.02  | 12.86  | 13.08  | 12.33  | 11.75  | 11.49  | 11.36  | 10.59  | 11.07  | 12.08  | 11.91  | 12.32  | 12.48  | 12.73  | 12.81  | 12.84  | 14.21  | 14.38  | 14.42  | 14.14  | 14.20  | 13.52  | 13.57  | 13.16  |
 | **Thursday**  | 12.71  | 12.32  | 12.39  | 11.71  | 11.21  |  9.29  | 10.77  | 11.93  | 12.66  | 13.80  | 14.05  | 14.43  | 15.54  | 15.75  | 14.83  | 14.57  | 14.83  | 14.67  | 14.88  | 15.94  | 16.63  | 16.95  | 14.rip durations.
 
-### Prediction Problem  
-We aim to create a **regression model** that predicts the **trip duration** (in seconds). The model will rely on features available at the time of prediction, such as:  
+## Feature Engineering  
 
-- **Origin coordinates** (latitude and longitude)  
-- **Destination coordinates** 
-- **Time of day and day of the week**  
-- **Weather conditions** (e.g., temperature, precipitation)  
+1. **Geographic Center of Trips (Latitude and Longitude):**  
+   - **Reasoning:** This feature represents the midpoint between the origin and destination of each trip.  
+   - **Why it’s Good:**  
+     - Traffic congestion and road density are often centralized in urban areas. By adding the center point, the model can implicitly account for potential delays in high-traffic zones.
+     - This feature captures information that a simple start and endpoint cannot convey.
+
+2. **Trip Direction (Categorical):**  
+   - **Reasoning:** Encodes the cardinal direction of the trip, such as NorthEast or SouthWest.  
+   - **Why it’s Good:**  
+     - Different directions may encounter varying traffic patterns and road conditions (e.g., trips heading downtown may face more congestion than trips leaving the city).
+     - Directional information helps the model learn interesitng dependencies without directly relying on longitude and latitude differences.
+
+3. **Trip Distance (Haversine Formula):**  
+   - **Reasoning:** Calculates the great-circle distance between the origin and destination points.  
+   - **Why it’s Good:**  
+     - Distance directly correlates with trip duration; longer distances inherently take more time.
+     - The Haversine formula accounts for the curvature of the Earth, providing a precise measurement that is crucial for trips spanning large geographic areas.
+
+4. **Polynomial Features (Degree 2):**  
+   - **Reasoning:** Non-linear relationships exist between numerical features (e.g., distance and duration).  
+   - **Why it’s Good:**  
+     - The squared and interaction terms enable the model to capture non-linear patterns, such as how the duration might increase disproportionately with distance in high-congestion areas.
+     - For example, polynomial features allow the model to understand that the impact of traffic on short trips differs from its impact on longer trips.
+
+---
 
 ### Evaluation Metric  
 Our chosen evaluation metric is **Root Mean Squared Logarithmic Error (RMSLE)**. This metric is ideal for our problem because:  
@@ -405,13 +445,15 @@ Our chosen evaluation metric is **Root Mean Squared Logarithmic Error (RMSLE)**.
 
 Although RMSLE is sensitive to small target values, this is acceptable in our context, as shorter trips are common in urban environments like Washington, D.C., and accurately predicting these is crucial.
 
-### Justification for Feature Selection  
 To ensure the model's predictions are realistic and feasible, we only use features that a taxi driver or dispatch service would have access to at the start of the trip. For example:  
 - **Weather data** is available from real-time weather APIs.  
 - **Time of day** and **day of the week** are trivial to compute from the trip start time.  
 - **Geographic coordinates** are often known if the trip is pre-scheduled or provided via a ride-hailing app.  
 
 By adhering to these constraints, our model mimics real-world prediction scenarios and ensures that it is practical for use in applications like GPS software.
+
+
+# Model Training 
 
 ## Baseline Model  
 
@@ -452,37 +494,14 @@ This score indicates that, on average, the model's predictions differ from the t
 
 This reflects the limitations of the baseline model, which used minimal feature engineering and preprocessing. While it provides a starting point for understanding the data, the RMSLE score highlights significant room for improvement in capturing the complexity of trip duration predictions.
 
+
+## Model Selection
+
+
 ## Final Model  
 
 The **final model** improves upon the baseline by incorporating thoughtfully engineered features and leveraging hyperparameter tuning to refine performance.
 
-### New Features Added  
-
-1. **Geographic Center of Trips (Latitude and Longitude):**  
-   - **Reasoning:** This feature represents the midpoint between the origin and destination of each trip.  
-   - **Why it’s Good:**  
-     - Traffic congestion and road density are often centralized in urban areas. By adding the center point, the model can implicitly account for potential delays in high-traffic zones.
-     - This feature captures information that a simple start and endpoint cannot convey.
-
-2. **Trip Direction (Categorical):**  
-   - **Reasoning:** Encodes the cardinal direction of the trip, such as NorthEast or SouthWest.  
-   - **Why it’s Good:**  
-     - Different directions may encounter varying traffic patterns and road conditions (e.g., trips heading downtown may face more congestion than trips leaving the city).
-     - Directional information helps the model learn interesitng dependencies without directly relying on longitude and latitude differences.
-
-3. **Trip Distance (Haversine Formula):**  
-   - **Reasoning:** Calculates the great-circle distance between the origin and destination points.  
-   - **Why it’s Good:**  
-     - Distance directly correlates with trip duration; longer distances inherently take more time.
-     - The Haversine formula accounts for the curvature of the Earth, providing a precise measurement that is crucial for trips spanning large geographic areas.
-
-4. **Polynomial Features (Degree 2):**  
-   - **Reasoning:** Non-linear relationships exist between numerical features (e.g., distance and duration).  
-   - **Why it’s Good:**  
-     - The squared and interaction terms enable the model to capture non-linear patterns, such as how the duration might increase disproportionately with distance in high-congestion areas.
-     - For example, polynomial features allow the model to understand that the impact of traffic on short trips differs from its impact on longer trips.
-
----
 
 ### Modeling Algorithm and Hyperparameter Tuning  
 
@@ -514,3 +533,5 @@ The **final model** improves upon the baseline by incorporating thoughtfully eng
     - Polynomial features allowed the model to understand non-linear interactions, particularly between distance, time, and other trip-specific variables.  
 
 This improvement demonstrates the importance of thoughtful feature engineering and hyperparameter tuning in creating a model that better aligns with the real-world data generating process.
+
+# Final Predictions and Conclusion
