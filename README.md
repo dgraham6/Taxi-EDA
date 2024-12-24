@@ -36,24 +36,20 @@
     .page-header h3 {
       margin: 5px 0;
       font-size: 16px;
-      color: black;
+      color: black; 
     }  
-    .btn {    
-  text-decoration: none;    
-  color: black    ;
-  background-color: rgba(0, 128, 0, 0.5); /* Adjust transparency here     */
-  padding: 8px 12    px;
-  border-radius:     4px;
-  margin:     5px;
-  font-size:     14px;
-  display: inline-block; /* Ensures the buttons are displayed prop    erly */
-  text-align:     e    nter;
-}
-
-.    btn:hover {
-  background-color: rgba(0, 86, 0, 0.7); /* Slightly less transparent     n hover */
-}
-
+    .btn {
+      text-decoration: none;
+      color: black;
+      background-color: rgba(0, 123, 255, 0.5); 
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin: 5px;
+      font-size: 14px;
+    }
+    .btn:hover {
+      background-color: rgba(0, 86, 179, 0.5);
+    }
   </style>
 </head>
 <body>
