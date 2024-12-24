@@ -123,38 +123,42 @@
   <h2>Table of Contents</h2>
   <ul>
     <li>
-    <a href="#introduction">Introduction</a>
-    <ul>
-      <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
-      <li><a href="#dataset-overview">Dataset Overview</a></li>
-    </ul>
+      <a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
+        <li><a href="#dataset-overview">Dataset Overview</a></li>
+      </ul>
     </li>
     <li><a href="#external-data">External Data</a></li>
-    <li><a href="#data-cleaning">Data Cleaning</a></li>
-    <ul>
-      <li><a href="#handling-missing-data">Missing Data</a></li>
-      <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
-    </ul>
     <li>
-    <a href="#data-analysis">Exploratory Data Analysis</a>
-    <ul>
-      <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
-      <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the Week</a></li>
-      <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
-    </ul>
+      <a href="#data-cleaning">Data Cleaning</a>
+      <ul>
+        <li><a href="#handling-missing-data">Missing Data</a></li>
+        <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#data-analysis">Exploratory Data Analysis</a>
+      <ul>
+        <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
+        <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the Week</a></li>
+        <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
+      </ul>
     </li>
     <li><a href="#feature-engineering">Feature Engineering</a></li>
     <li><a href="#framing-the-prediction-problem">Prediction Problem</a></li>
     <li>
-    <a href="#model-training">Model Training</a>
-    <ul>
-      <li><a href="#baseline-model">Baseline Model</a></li>
-      <li><a href="#final-model">Final Model</a></li>
-    </ul>
+      <a href="#model-training">Model Training</a>
+      <ul>
+        <li><a href="#baseline-model">Baseline Model</a></li>
+        <li><a href="#final-model">Final Model</a></li>
+      </ul>
     </li>
     <li><a href="#final-predictions-and-conclusion">Final Predictions and Conclusion</a></li>
   </ul>
 </div>
+
+
 <script>
   const toggleBtn = document.getElementById('toggle-btn');
   const sidebar = document.getElementById('sidebar');
@@ -163,9 +167,11 @@
     sidebar.classList.toggle('active');
   });
 </script>
+
 </body>
 </html>
-                                       line Model</a></li>
+
+                                           line Model</a></li>
         <li><a href="#final-model">Final Model</a></li>
       </ul>
       <li><a href="#final-predictions-and-conclusion">Final Predictions and Conclusion</a></li>
