@@ -57,8 +57,8 @@
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
     <h2 class="project-tagline">Drake Graham</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
-    <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: PaleGreen; color: black;">View on GitHub</a>
-    <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: PaleGreen; color: black;">LinkedIn</a>
+    <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: YellowGreen; color: black;">View on GitHub</a>
+    <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: YellowGreen; color: black;">LinkedIn</a>
   </header>
 </body>
 </html>
