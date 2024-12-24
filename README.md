@@ -75,7 +75,7 @@
     }
     #sidebar ul li a {
       font-size: 0.9em;
-      color: #666; /* Optional: Change color for differentiation */
+      color: #666;
     }
     #toggle-btn {
       position: fixed;
@@ -95,7 +95,7 @@
   <!-- Page Header -->
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham22</h2>
+    <h2 class="project-tagline">Drake Graham21</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -151,6 +151,7 @@
   </script>
 
 </body>
+</html>
 tml>
 
 
