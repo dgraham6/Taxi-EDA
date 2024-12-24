@@ -55,7 +55,7 @@
 <body>
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham3</h2>
+    <h2 class="project-tagline">Drake Graham4</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -73,19 +73,19 @@
       font-family: Arial, sans-serif;
     }
     #sidebar {
-      width: 250px;
+      width: 220px;
       position: fixed;
-      left: -250px; /* Hide the sidebar off-screen */
+      left: -250px;
       top: 0;
       bottom: 0;
       background-color: #f4f4f4;
       overflow-y: auto;
       padding: 10px;
       box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-      transition: left 0.3s ease-in-out; /* Smooth slide-in effect */
+      transition: left 0.3s ease-in-out; 
     }
     #sidebar.active {
-      left: 0; /* Slide the sidebar into view */
+      left: 0; 
     }
     #sidebar h2 {
       font-size: 18px;
@@ -122,11 +122,13 @@
 <div id="sidebar">
   <h2>Table of Contents</h2>
   <ul>
-    <li><a href="#introduction">Introduction</a></li>
+    <li>
+    <a href="#introduction">Introduction</a>
     <ul>
       <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
       <li><a href="#dataset-overview">Dataset Overview</a></li>
     </ul>
+    </li>
     <li><a href="#external-data">External Data</a></li>
     <li><a href="#data-cleaning">Data Cleaning</a></li>
     <ul>
