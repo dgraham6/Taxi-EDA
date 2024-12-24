@@ -16,7 +16,7 @@
       flex-direction: column;
       padding: 50px 20px;
       background-image: url('back3.jpeg'); /* Set the background image */
-      background-size: 100%; /* Adjust this percentage for zoom */
+      background-size: 80%; /* Adjust this percentage for zoom */
       background-position: center; /* Center the image */
       background-repeat: no-repeat; /* Prevent repeating the image */
       text-align: center; /* Center text inside the header */
@@ -27,28 +27,34 @@
     }
     .page-header h1 {
       font-size: 32px;
+      text-decoration: underline; /* Add underline */
+      text-decoration-color: black; /* Ensure underline is black */
     }
     .page-header h2 {
       margin: 5px 0;
       font-size: 20px;
       color: black; /* Ensure h2 headers are black */
+      text-decoration: underline; /* Add underline */
+      text-decoration-color: black; /* Ensure underline is black */ 
     }
     .page-header h3 {
       margin: 5px 0;
       font-size: 16px;
       color: black; /* Ensure h3 headers are black */
-    }
+        text-decoration: underline; /* Add underline */
+        text-decoration-color: black; /* Ensure underline is black */ 
+    }  
     .btn {
       text-decoration: none;
       color: black;
-      background-color: rgba(0, 123, 255, 0.8); /* Semi-transparent button background */
+      background-color: rgba(0, 123, 255, 0.5); /* Semi-transparent button background */
       padding: 8px 12px;
       border-radius: 4px;
       margin: 5px;
       font-size: 14px;
     }
     .btn:hover {
-      background-color: rgba(0, 86, 179, 0.8); /* Adjust hover background color */
+      background-color: rgba(0, 86, 179, 0.5); /* Adjust hover background color */
     }
   </style>
 </head>
