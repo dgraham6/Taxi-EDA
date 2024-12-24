@@ -57,8 +57,8 @@
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
     <h2 class="project-tagline">Drake Graham</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
-    <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: green; color: black;">View on GitHub</a>
-    <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: green; color: black;">LinkedIn</a>
+    <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: LightGreen; color: black;">View on GitHub</a>
+    <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: LightGreen; color: black;">LinkedIn</a>
   </header>
 </body>
 </html>
@@ -152,11 +152,18 @@ Did you know you spend around <span style="color:red">37,935</span> hours of you
 
 Computer Science majors spend a lot of time trying to shave off milliseconds from their programs, so it follows that we might also want to spend the time to optimize such a time-consuming activity in all of our lives. If you're like me, you've always been curious about how software like Google Maps, Apple Maps, and Waze estimate ETAs and why there are differences between their given routes. 
 
-In this project, I'll attempt to estimate travel times from a large dataset of completed taxi trips,
+In this project, I'll attempt to estimate travel times from a large dataset of compl.ted taxi trips,
 
-I'm using the [Taxi Trips in 2024 in the District of Columbia dataset](https://catalog.data.gov/dataset/taxi-trips-in-2024) from the Department of For-Hire Vehicles, which is intended for public access and use. As of today, there are 10 taxi files combined, totaling over 2 million rows. This data ranges from January 1st, 2024, to November 5th, and it is continuously updated until the year is over. The dataset includes 27 columns, with some of the most relevant for this project being the pickup and drop-off locations, trip duration, and mileage. 
+I'm using the [Taxi Trips in 2024 in the District of Columbia dataset](https://catalog.data.gov/dataset/taxi-trips-in-2024) from the Department of For-Hire Vehicles, which is intended for public  The data is from the entire year of 2024. As of today, there are 10 taxi files combined, totaling over 2.4 million rows. The dataset includes 27 columns, with some of the most relevant for this project being the pickup and drop-off locations and trip duration., In this notebook, we explore taxi trip durations by first examining and visualizing the original dataset, addressing missing values, and engineering new features like trip distance and direction. Potential outliers are identified and removed to improve data reliability. 
 
-Although I've focused on this specific dataset, my pipeline is adaptable to similar datasets, ensuring it is not limited to this single dataset.
+To enhance the dataset, we incorporate external data, including hourly D.C weather details via the Open-Meteo API and theoretically fastest routes using the OSRM API. These additions allow us to analyze the effects of weather and route efficiency on trip durations.
+
+We analyze these features to understand their relationship with the target variable, `trip_duration`. Visualizations, including histograms and time-based trends, are used to uncover patterns, such as peak travel times and anomalies in short trip durations.
+
+A baseline regression model was developed using simple features and minimal preprocessing, achieving an RMSLE of 0.824. This serves as a starting point for comparison. To improve prediction accuracy, we engineer new features such as the geographic center of trips and polynomial terms, leveraging advanced preprocessing pipelines and hyperparameter tuning.
+
+Lastly, we briefly consider framing the problem as a classification challenge, offering additional perspectives for future work. This notebook concludes with the deployment of a refined XGBoost model to achieve a balance between complexity and prediction accuracy.
+ingle dataset.
 
 ## Map Visualization of Trip Origins  
 
@@ -378,11 +385,7 @@ This overview helps identify travel patterns and peak times, valuable for optimi
 | **Monday**    | 13.08  | 12.64  | 12.49  | 12.25  | 12.19  | 10.85  | 10.20  | 11.51  | 13.17  | 13.72  | 14.25  | 14.90  | 15.47  | 15.33  | 14.57  | 14.20  | 14.43  | 14.10  | 14.41  | 15.26  | 15.35  | 14.82  | 13.07  | 12.05  |
 | **Saturday**  | 13.16  | 12.99  | 13.42  | 12.45  | 11.71  | 11.39  | 11.32  | 11.35  | 12.44  | 13.61  | 13.85  | 12.79  | 12.55  | 13.21  | 13.22  | 13.62  | 13.98  | 14.32  | 14.30  | 14.52  | 14.13  | 14.00  | 13.71  | 13.05  |
 | **Sunday**    | 13.02  | 12.86  | 13.08  | 12.33  | 11.75  | 11.49  | 11.36  | 10.59  | 11.07  | 12.08  | 11.91  | 12.32  | 12.48  | 12.73  | 12.81  | 12.84  | 14.21  | 14.38  | 14.42  | 14.14  | 14.20  | 13.52  | 13.57  | 13.16  |
-| **Thursday**  | 12.71  | 12.32  | 12.39  | 11.71  | 11.21  |  9.29  | 10.77  | 11.93  | 12.66  | 13.80  | 14.05  | 14.43  | 15.54  | 15.75  | 14.83  | 14.57  | 14.83  | 14.67  | 14.88  | 15.94  | 16.63  | 16.95  | 14.79  | 13.22  |
-
-## Framing the Prediction Problem  
-
-As stated in the introduction, our goal is to leverage the data a taxi driver would feasibly have at the beginning of a trip to predict the total trip duration, without implementing custom routing algorithms. This aligns with how GPS software like Google Maps estimates trip durations.
+| **Thursday**  | 12.71  | 12.32  | 12.39  | 11.71  | 11.21  |  9.29  | 10.77  | 11.93  | 12.66  | 13.80  | 14.05  | 14.43  | 15.54  | 15.75  | 14.83  | 14.57  | 14.83  | 14.67  | 14.88  | 15.94  | 16.63  | 16.95  | 14.rip durations.
 
 ### Prediction Problem  
 We aim to create a **regression model** that predicts the **trip duration** (in seconds). The model will rely on features available at the time of prediction, such as:  
