@@ -16,7 +16,7 @@
       flex-direction: column;
       padding: 50px 20px;
       background-image: url('back3.jpeg'); 
-      background-size: 80%; 
+      background-size: 100%; 
       background-position: center;
       background-repeat: no-repeat;
       text-align: center; 
@@ -27,40 +27,38 @@
     }
     .page-header h1 {
       font-size: 32px;
-      text-decoration: underline; 
-      text-decoration-color: black; 
     }
     .page-header h2 {
       margin: 5px 0;
       font-size: 20px;
       color: black;
-      text-decoration: underline;
-      text-decoration-color: black; 
     }
     .page-header h3 {
       margin: 5px 0;
       font-size: 16px;
-      color: black; 
-        text-decoration: underline; 
-        text-decoration-color: black; 
-    }  
-    .btn {
-      text-decoration: none;
       color: black;
-      background-color: rgba(0, 123, 255, 0.5); 
-      padding: 8px 12px;
-      border-radius: 4px;
-      margin: 5px;
-      font-size: 14px;
-    }
-    .btn:hover {
-      background-color: rgba(0, 86, 179, 0.5);
-    }
+    }  
+    .btn {    
+  text-decoration: none;    
+  color: black    ;
+  background-color: rgba(0, 128, 0, 0.5); /* Adjust transparency here     */
+  padding: 8px 12    px;
+  border-radius:     4px;
+  margin:     5px;
+  font-size:     14px;
+  display: inline-block; /* Ensures the buttons are displayed prop    erly */
+  text-align:     e    nter;
+}
+
+.    btn:hover {
+  background-color: rgba(0, 86, 0, 0.7); /* Slightly less transparent     n hover */
+}
+
   </style>
 </head>
 <body>
   <header class="page-header" role="banner">
-    <h1 class="project-name">Driven to Discover: An Exploratory Data Analysis of Taxi Trips</h1>
+    <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
     <h2 class="project-tagline">Drake Graham</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: green; color: black;">View on GitHub</a>
