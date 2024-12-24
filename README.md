@@ -142,13 +142,14 @@
     <li><a href="#framing-the-prediction-problem">Prediction Problem</a></li>
     <li><a href="#model-training">Model Training</a></li>
     <ul>
-      <li><a href="#baseline-model">Baselinellll Model</a></li>
+      <li><a href="#baseline-model">Baseline Model</a></li>
       <li><a href="#final-model">Final Model</a></li>
     </ul>
     <li><a href="#final-predictions-and-conclusion">Final Predictions and Conclusion</a></li>
   </ul>
 </div>
-
+</body>
+</html>
 <script>
   const toggleBtn = document.getElementById('toggle-btn');
   const sidebar = document.getElementById('sidebar');
