@@ -67,7 +67,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pop-Up Table of Contents</title>
+  <title>Collapsible Sidebar with Table of Contents</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -77,21 +77,22 @@
 
     /* Sidebar styles */
     #sidebar {
-      position: fixed;
-      top: 0;
-      left: -250px; /* Initially hidden */
       width: 250px;
-      height: 100%;
+      position: fixed;
+      left: -250px; /* Initially hidden */
+      top: 0;
+      bottom: 0;
       background-color: #f4f4f4;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
       overflow-y: auto;
-      padding: 10px;
-      transition: left 0.3s ease;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+      transform: translateX(-100%);
       z-index: 1000;
     }
 
-    #sidebar.open {
-      left: 0; /* Slide in when open */
+    #sidebar.active {
+      transform: translateX(0); /* Slide in when active */
     }
 
     #sidebar h2 {
@@ -122,53 +123,30 @@
       font-size: 14px; /* Make subcategories smaller */
     }
 
-    /* Open button */
-    .open-btn {
+    /* Toggle button styles */
+    #toggle-btn {
       position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #007bff;
-      color: white;
+      top: 10px;
+      left: 10px;
+      background-color: #333;
+      color: #fff;
       border: none;
       padding: 10px 15px;
-      border-radius: 4px;
       cursor: pointer;
       z-index: 1001;
     }
 
-    .open-btn:hover {
-      background-color: #0056b3;
-    }
-
-    /* Close button */
-    .close-btn {
-      display: block;
-      text-align: right;
-      margin-bottom: 10px;
-    }
-
-    .close-btn button {
-      background: none;
-      border: none;
-      font-size: 18px;
-      cursor: pointer;
-      color: #333;
-    }
-
-    .close-btn button:hover {
-      color: #007bff;
+    #toggle-btn:hover {
+      background-color: #555;
     }
   </style>
 </head>
 <body>
-  <!-- Button to open the sidebar -->
-  <button class="open-btn" onclick="toggleSidebar()">☰ Open Table of Contents</button>
+  <!-- Toggle button to open/close the sidebar -->
+  <button id="toggle-btn">☰ Table of Contents</button>
 
   <!-- Sidebar content -->
   <div id="sidebar">
-    <div class="close-btn">
-      <button onclick="toggleSidebar()">✖</button>
-    </div>
     <h2>Table of Contents</h2>
     <ul>
       <li><a href="#introduction">Introduction</a></li>
@@ -200,13 +178,17 @@
   </div>
 
   <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('open');
-    }
+    // Toggle the sidebar visibility
+    const toggleBtn = document.getElementById('toggle-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
   </script>
 </body>
 </html>
+
 
                                            line Model</a></li>
         <li><a href="#final-model">Final Model</a></li>
