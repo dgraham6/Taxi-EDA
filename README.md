@@ -55,7 +55,7 @@
 <body>
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham21</h2>
+    <h2 class="project-tagline">Drake Graham23</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -67,10 +67,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collapsible Sidebar</title>
+  <title>Title with Image</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 50px 20px;
+      background-image: url('back3.jpeg'); 
+      background-size: 100%; 
+      background-position: center;
+      background-repeat: no-repeat;
+      text-align: center; 
+    }
+    .page-header h1, .page-header h2, .page-header h3 {
+      margin: 0;
+      color: black;
+    }
+    .page-header h1 {
+      font-size: 32px;
+    }
+    .page-header h2 {
+      margin: 5px 0;
+      font-size: 20px;
+      color: black;
+    }
+    .page-header h3 {
+      margin: 5px 0;
+      font-size: 16px;
+      color: black; 
+    }  
+    .btn {
+      text-decoration: none;
+      color: black;
+      background-color: rgba(0, 123, 255, 0.5); 
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin: 5px;
+      font-size: 14px;
+    }
+    .btn:hover {
+      background-color: rgba(0, 86, 179, 0.5);
     }
     #sidebar {
       width: 220px;
@@ -95,11 +138,8 @@
       list-style: none;
       padding: 0;
     }
-    #sidebar ul ul {
-      padding-left: 20px; /* Indent nested items */
-    }
-    #sidebar ul ul li a {
-      font-size: 0.9em; /* Reduce font size for nested items */
+    #sidebar ul li a {
+      font-size: 0.9em;
       color: #666; /* Optional: Change color for differentiation */
     }
     #toggle-btn {
@@ -117,57 +157,67 @@
 </head>
 <body>
 
-<!-- Toggle Button -->
-<button id="toggle-btn">☰ Table of Contents</button>
+  <!-- Page Header -->
+  <header class="page-header" role="banner">
+    <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
+    <h2 class="project-tagline">Drake Graham21</h2>
+    <h3 class="project-tagline">dgraham7362@gmail.com</h3>
+    <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
+    <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
+  </header>
 
-<!-- Sidebar -->
-<div id="sidebar">
-  <h2>Table of Contents</h2>
-  <ul>
-    <li><a href="#introduction">Introduction</a></li>
+  <!-- Toggle Button -->
+  <button id="toggle-btn">☰ Table of Contents</button>
+
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <h2>Table of Contents</h2>
     <ul>
-      <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
-      <li><a href="#dataset-overview">Dataset Overview</a></li>
+      <li><a href="#introduction">Introduction</a>
+        <ul>
+          <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
+          <li><a href="#dataset-overview">Dataset Overview</a></li>
+        </ul>
+      </li>
+      <li><a href="#external-data">External Data</a></li>
+      <li><a href="#data-cleaning">Data Cleaning</a>
+        <ul>
+          <li><a href="#handling-missing-data">Missing Data</a></li>
+          <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
+        </ul>
+      </li>
+      <li><a href="#data-analysis">Exploratory Data Analysis</a>
+        <ul>
+          <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
+          <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the Week</a></li>
+          <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
+        </ul>
+      </li>
+      <li><a href="#feature-engineering">Feature Engineering</a></li>
+      <li><a href="#framing-the-prediction-problem">Prediction Problem</a></li>
+      <li><a href="#model-training">Model Training</a>
+        <ul>
+          <li><a href="#baseline-model">Baseline Model</a></li>
+          <li><a href="#final-model">Final Model</a></li>
+        </ul>
+      </li>
     </ul>
-    <li><a href="#external-data">External Data</a></li>
-    <li><a href="#data-cleaning">Data Cleaning</a></li>
-    <ul>
-      <li><a href="#handling-missing-data">Missing Data</a></li>
-      <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
-    </ul>
-    <li><a href="#data-analysis">Exploratory Data Analysis</a></li>
-    <ul>
-      <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
-      <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the Week</a></li>
-      <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
-    </ul>
-    <li><a href="#feature-engineering">Feature Engineering</a></li>
-    <li><a href="#framing-the-prediction-problem">Prediction Problem</a></li>
-    <li><a href="#model-training">Model Training</a></li>
-    <ul>
-      <li><a href="#baseline-model">Baseline Model</a></li>
-      <li><a href="#final-model">Final Model</a></li>
-    </ul>
-  </ul>
-</div>
+  </div>
 
-<script>
-  // Get the toggle button and sidebar
-  const toggleBtn = document.getElementById('toggle-btn');
-  const sidebar = document.getElementById('sidebar');
+  <script>
+    // Get the toggle button and sidebar
+    const toggleBtn = document.getElementById('toggle-btn');
+    const sidebar = document.getElementById('sidebar');
 
-  // Ensure the sidebar only toggles visibility without affecting its content
-  toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('active'); // Toggles the 'active' class for visibility
-  });
+    // Toggle sidebar visibility
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+  </script>
 
-  // Clean up or prevent unwanted elements (if dynamically added elsewhere)
-  document.querySelectorAll('a[href="#final-predictions-and-conclusion"]').forEach((el) => {
-    el.remove(); // Remove unwanted links dynamically
-  });
-</script>
-
+</body>
 </html>
+
 tml>
 
 
