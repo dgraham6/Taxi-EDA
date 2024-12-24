@@ -150,7 +150,7 @@
     <li>
       <a href="#model-training">Model Training</a>
       <ul>
-        <li><a href="#baseline-model">Baseline Model</a></li>
+        <li><a href="#baseline-model">Baselllline Model</a></li>
         <li><a href="#final-model">Final Model</a></li>
       </ul>
     </li>
