@@ -120,15 +120,7 @@
 <!-- Toggle Button -->
 <button id="toggle-btn">☰ Table of Contents</button>
 
-<script>
-  // Get elements
-  const toggleBtn = document.getElementById('toggle-btn');
-  const sidebar = document.getElementById('sidebar');
-  // Toggle sidebar visibility
-  toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-  });
-</script>
+
 
 <!-- Sidebar -->
 <div id="sidebar">
@@ -161,7 +153,15 @@
     <!-- Removed unwanted link -->
   </ul>
 </div>
-</html>
+<<script>
+  // Get elements
+  const toggleBtn = document.getElementById('toggle-btn');
+  const sidebar = document.getElementById('sidebar');
+  // Toggle sidebar visibility
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
+</script>/html>
 
 
 
