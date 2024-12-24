@@ -62,79 +62,133 @@
   </header>
 </body>
 </html>
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collapsible Table of Contents</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    #sidebar {
-      width: 250px;
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      background-color: #f4f4f4;
-      overflow-y: auto;
-      padding: 10px;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    }
-    #sidebar h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    #sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-    #sidebar ul li {
-      margin: 5px 0;
-    }
-    #sidebar ul li a {
-      text-decoration: none;
-      color: #333;
-    }
-    #sidebar ul li a:hover {
-      color: #007bff;
-    }
-    #sidebar ul ul {
-      margin-left: 20px;
-      font-size: 14px; /* Make subcategories smaller */
-    }
-  </style>
-</head>
-<body>
-  <div id="sidebar">
-    <h2>Table of Contents</h2>
-    <ul>
-      <li><a href="#introduction">Introduction</a></li>
-      <ul>
-        <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
-        <li><a href="#dataset-overview">Dataset Overview</a></li>
-      </ul>
-      <li><a href="#external-data">External Data</a></li>
-      <li><a href="#data-cleaning">Data Cleaning</a></li>
-      <ul>
-        <li><a href="#handling-missing-data">Missing Data</a></li>
-        <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
-      </ul>
-      <li><a href="#data-analysis">Exploratory Data Analysis</a></li>
-      <ul>
-        <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
-        <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the Week</a></li>
-        <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
-      </ul>
-      <li><a href="#feature-engineering">Feature Engineering</a></li>
-      <li><a href="#framing-the-prediction-problem">Prediction Problem</a></li>
-      <li><a href="#model-training">Model Training</a></li>
-      <ul>
-        <li><a href="#baseline-model">Baseline Model</a></li>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pop-Up Table of Contents</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px; /* Initially hidden */
+      width: 250px;
+      height: 100%;
+      background-color: #f4f4f4;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      padding: 10px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+    sidebar.open {
+      left: 0; 
+    }
+    sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    sidebar ul li {
+      margin: 5px 0;
+    }
+    sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    sidebar ul li a:hover {
+      color: #007bff;
+    }
+    sidebar ul ul {
+      margin-left: 20px;
+      font-size: 14px; /* Make subcategories smaller */
+    }
+    .open-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .open-btn:hover {
+      background-color: #0056b3;
+    }
+    .close-btn {
+      display: block;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+    .close-btn button {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #333;
+    }
+    .close-btn button:hover {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+  <button class="open-btn" onclick="toggleSidebar()">☰ Open Table of Contents</button>
+  <div id="sidebar">
+    <div class="close-btn">
+      <button onclick="toggleSidebar()">✖</button>
+    </div>
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <ul>
+        <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
+        <li><a href="#dataset-overview">Dataset Overview</a></li>
+      </ul>
+      <li><a href="#external-data">External Data</a></li>
+      <li><a href="#data-cleaning">Data Cleaning</a></li>
+      <ul>
+        <li><a href="#handling-missing-data">Missing Data</a></li>
+        <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
+      </ul>
+      <li><a href="#data-analysis">Exploratory Data Analysis</a></li>
+      <ul>
+        <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
+        <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the Week</a></li>
+        <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
+      </ul>
+      <li><a href="#feature-engineering">Feature Engineering</a></li>
+      <li><a href="#framing-the-prediction-problem">Prediction Problem</a></li>
+      <li><a href="#model-training">Model Training</a></li>
+      <ul>
+        <li><a href="#baseline-model">Baseline Model</a></li>
+        <li><a href="#final-model">Final Model</a></li>
+      </ul>
+      <li><a href="#final-predictions-and-conclusion">Final Predictions and Conclusion</a></li>
+    </ul>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
+                                           line Model</a></li>
         <li><a href="#final-model">Final Model</a></li>
       </ul>
       <li><a href="#final-predictions-and-conclusion">Final Predictions and Conclusion</a></li>
