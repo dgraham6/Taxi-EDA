@@ -154,9 +154,6 @@
 
 <!-- JavaScript -->
 <script>
-  toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-  });
 </script>
 
 </body>
