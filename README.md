@@ -120,7 +120,6 @@
 <button id="toggle-btn">☰ Table of Contents</button>
 
 <div id="sidebar">
-  <h2>Table of Contents</h2>
   <ul>
     <li><a href="#introduction">Introduction</a></li>
     <ul>
