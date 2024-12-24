@@ -95,12 +95,12 @@
       list-style: none;
       padding: 0;
     }
-    #sidebar ul li {
-      margin: 5px 0;
-    }
-    #sidebar ul li a {
-      text-decoration: none;
-      color: #333;
+      #sidebar ul ul {
+        padding-left: 20px; /* Indent nested items */
+      }
+      #sidebar ul ul li a {
+        font-size: 0.9em; /* Reduce font size for nested items */
+        color: #666; /* Optional: Change color for differentiation */
     }
     #toggle-btn {
       position: fixed;
