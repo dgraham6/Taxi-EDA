@@ -116,7 +116,7 @@
     }
   </style>
 </head>
-<body>
+</html>
 
 <html lang="en">
 <head>
