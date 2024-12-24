@@ -74,7 +74,9 @@
       margin: 0;
       padding: 0;
     }
-    sidebar {
+
+    /* Sidebar styles */
+    #sidebar {
       position: fixed;
       top: 0;
       left: -250px; /* Initially hidden */
@@ -87,31 +89,40 @@
       transition: left 0.3s ease;
       z-index: 1000;
     }
-    sidebar.open {
-      left: 0; 
+
+    #sidebar.open {
+      left: 0; /* Slide in when open */
     }
-    sidebar h2 {
+
+    #sidebar h2 {
       font-size: 18px;
       margin-bottom: 10px;
     }
-    sidebar ul {
+
+    #sidebar ul {
       list-style: none;
       padding: 0;
     }
-    sidebar ul li {
+
+    #sidebar ul li {
       margin: 5px 0;
     }
-    sidebar ul li a {
+
+    #sidebar ul li a {
       text-decoration: none;
       color: #333;
     }
-    sidebar ul li a:hover {
+
+    #sidebar ul li a:hover {
       color: #007bff;
     }
-    sidebar ul ul {
+
+    #sidebar ul ul {
       margin-left: 20px;
       font-size: 14px; /* Make subcategories smaller */
     }
+
+    /* Open button */
     .open-btn {
       position: fixed;
       top: 20px;
@@ -124,14 +135,18 @@
       cursor: pointer;
       z-index: 1001;
     }
+
     .open-btn:hover {
       background-color: #0056b3;
     }
+
+    /* Close button */
     .close-btn {
       display: block;
       text-align: right;
       margin-bottom: 10px;
     }
+
     .close-btn button {
       background: none;
       border: none;
@@ -139,13 +154,17 @@
       cursor: pointer;
       color: #333;
     }
+
     .close-btn button:hover {
       color: #007bff;
     }
   </style>
 </head>
 <body>
+  <!-- Button to open the sidebar -->
   <button class="open-btn" onclick="toggleSidebar()">☰ Open Table of Contents</button>
+
+  <!-- Sidebar content -->
   <div id="sidebar">
     <div class="close-btn">
       <button onclick="toggleSidebar()">✖</button>
@@ -188,6 +207,7 @@
   </script>
 </body>
 </html>
+
                                            line Model</a></li>
         <li><a href="#final-model">Final Model</a></li>
       </ul>
