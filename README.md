@@ -55,7 +55,7 @@
 <body>
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham14</h2>
+    <h2 class="project-tagline">Drake Graham15</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -95,12 +95,12 @@
       list-style: none;
       padding: 0;
     }
-      #sidebar ul ul {
-        padding-left: 20px; /* Indent nested items */
-      }
-      #sidebar ul ul li a {
-        font-size: 0.9em; /* Reduce font size for nested items */
-        color: #666; /* Optional: Change color for differentiation */
+    #sidebar ul ul {
+      padding-left: 20px; /* Indent nested items */
+    }
+    #sidebar ul ul li a {
+      font-size: 0.9em; /* Reduce font size for nested items */
+      color: #666; /* Optional: Change color for differentiation */
     }
     #toggle-btn {
       position: fixed;
@@ -117,8 +117,10 @@
 </head>
 <body>
 
+<!-- Toggle Button -->
 <button id="toggle-btn">☰ Table of Contents</button>
 
+<!-- Sidebar -->
 <div id="sidebar">
   <h2>Table of Contents</h2>
   <ul>
@@ -146,29 +148,29 @@
       <li><a href="#baseline-model">Baseline Model</a></li>
       <li><a href="#final-model">Final Model</a></li>
     </ul>
-    <li><a href="#final-predictions-and-conclusion">Final Predictions and Conclusion</a></li>
+    <!-- Removed unwanted link -->
   </ul>
 </div>
+
+<!-- JavaScript -->
+<script>
+  // Get elements
+  const toggleBtn = document.getElementById('toggle-btn');
+  const sidebar = document.getElementById('sidebar');
+
+  // Remove unwanted links dynamically
+  const unwanted = sidebar.querySelectorAll('a[href="#final-predictions-and-conclusion"]');
+  unwanted.forEach((el) => el.remove());
+
+  // Toggle sidebar visibility
+  toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
+</script>
+
 </body>
 </html>
 
-<html lang="en">
-<script>
-const toggleBtn = document.getElementById('toggle-btn');
-const sidebar = document.getElementById('sidebar');
-
-// Remove unwanted content
-const unwanted = document.querySelectorAll('a[href="#final-predictions-and-conclusion"]');
-unwanted.forEach((el) => el.remove());
-
-// Toggle sidebar visibility
-toggleBtn.addEventListener('click', () => {
-  sidebar.classList.toggle('active');
-});
-
-</script>
-
-</html>
                                         line Model</a></li>
         <li><a href="#final-model">Final Model</a></li>
       </ul>
