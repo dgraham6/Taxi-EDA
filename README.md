@@ -151,13 +151,18 @@
 </div>
 
 <script>
-  const toggleBtn = document.getElementById('toggle-btn');
-    
-  const sidebar = document.getElementById('sidebar');
-    
-  toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
-  });
+const toggleBtn = document.getElementById('toggle-btn');
+const sidebar = document.getElementById('sidebar');
+
+// Remove unwanted content
+const unwanted = document.querySelectorAll('a[href="#final-predictions-and-conclusion"]');
+unwanted.forEach((el) => el.remove());
+
+// Toggle sidebar visibility
+toggleBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+});
+
 </script>
 
 </body>
