@@ -15,46 +15,46 @@
       justify-content: center;
       flex-direction: column;
       padding: 50px 20px;
-      background-image: url('back3.jpeg'); /* Set the background image */
-      background-size: 80%; /* Adjust this percentage for zoom */
-      background-position: center; /* Center the image */
-      background-repeat: no-repeat; /* Prevent repeating the image */
-      text-align: center; /* Center text inside the header */
+      background-image: url('back3.jpeg'); 
+      background-size: 80%; 
+      background-position: center;
+      background-repeat: no-repeat;
+      text-align: center; 
     }
     .page-header h1, .page-header h2, .page-header h3 {
       margin: 0;
-      color: black; /* Set headers to black */
+      color: black;
     }
     .page-header h1 {
       font-size: 32px;
-      text-decoration: underline; /* Add underline */
-      text-decoration-color: black; /* Ensure underline is black */
+      text-decoration: underline; 
+      text-decoration-color: black; 
     }
     .page-header h2 {
       margin: 5px 0;
       font-size: 20px;
-      color: black; /* Ensure h2 headers are black */
-      text-decoration: underline; /* Add underline */
-      text-decoration-color: black; /* Ensure underline is black */ 
+      color: black;
+      text-decoration: underline;
+      text-decoration-color: black; 
     }
     .page-header h3 {
       margin: 5px 0;
       font-size: 16px;
-      color: black; /* Ensure h3 headers are black */
-        text-decoration: underline; /* Add underline */
-        text-decoration-color: black; /* Ensure underline is black */ 
+      color: black; 
+        text-decoration: underline; 
+        text-decoration-color: black; 
     }  
     .btn {
       text-decoration: none;
       color: black;
-      background-color: rgba(0, 123, 255, 0.5); /* Semi-transparent button background */
+      background-color: rgba(0, 123, 255, 0.5); 
       padding: 8px 12px;
       border-radius: 4px;
       margin: 5px;
       font-size: 14px;
     }
     .btn:hover {
-      background-color: rgba(0, 86, 179, 0.5); /* Adjust hover background color */
+      background-color: rgba(0, 86, 179, 0.5);
     }
   </style>
 </head>
