@@ -55,7 +55,7 @@
 <body>
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham7</h2>
+    <h2 class="project-tagline">Drake Graham8</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -122,42 +122,33 @@
 <div id="sidebar">
   <h2>Table of Contents</h2>
   <ul>
-    <li>
-      <a href="#introduction">Introduction</a>
-      <ul>
-        <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
-        <li><a href="#dataset-overview">Dataset Overview</a></li>
-      </ul>
-    </li>
+    <li><a href="#introduction">Introduction</a></li>
+    <ul>
+      <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
+      <li><a href="#dataset-overview">Dataset Overview</a></li>
+    </ul>
     <li><a href="#external-data">External Data</a></li>
-    <li>
-      <a href="#data-cleaning">Data Cleaning</a>
-      <ul>
-        <li><a href="#handling-missing-data">Missing Data</a></li>
-        <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#data-analysis">Exploratory Data Analysis</a>
-      <ul>
-        <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
-        <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the Week</a></li>
-        <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
-      </ul>
-    </li>
+    <li><a href="#data-cleaning">Data Cleaning</a></li>
+    <ul>
+      <li><a href="#handling-missing-data">Missing Data</a></li>
+      <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
+    </ul>
+    <li><a href="#data-analysis">Exploratory Data Analysis</a></li>
+    <ul>
+      <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
+      <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the Week</a></li>
+      <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
+    </ul>
     <li><a href="#feature-engineering">Feature Engineering</a></li>
     <li><a href="#framing-the-prediction-problem">Prediction Problem</a></li>
-    <li>
-      <a href="#model-training">Model Training</a>
-      <ul>
-        <li><a href="#baseline-model">Baselllline Model</a></li>
-        <li><a href="#final-model">Final Model</a></li>
-      </ul>
-    </li>
+    <li><a href="#model-training">Model Training</a></li>
+    <ul>
+      <li><a href="#baseline-model">Baseline Model</a></li>
+      <li><a href="#final-model">Final Model</a></li>
+    </ul>
     <li><a href="#final-predictions-and-conclusion">Final Predictions and Conclusion</a></li>
   </ul>
 </div>
-
 
 <script>
   const toggleBtn = document.getElementById('toggle-btn');
@@ -167,9 +158,6 @@
     sidebar.classList.toggle('active');
   });
 </script>
-
-</body>
-</html>
 
                                            line Model</a></li>
         <li><a href="#final-model">Final Model</a></li>
