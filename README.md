@@ -55,7 +55,7 @@
 <body>
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham19x</h2>
+    <h2 class="project-tagline">Drake Graham20</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -120,8 +120,6 @@
 <!-- Toggle Button -->
 <button id="toggle-btn">☰ Table of Contents</button>
 
-
-
 <!-- Sidebar -->
 <div id="sidebar">
   <h2>Table of Contents</h2>
@@ -150,18 +148,25 @@
       <li><a href="#baseline-model">Baseline Model</a></li>
       <li><a href="#final-model">Final Model</a></li>
     </ul>
-    <!-- Removed unwanted link -->
   </ul>
 </div>
-<<script>
-  // Get elements
+
+<script>
+  // Get the toggle button and sidebar
   const toggleBtn = document.getElementById('toggle-btn');
   const sidebar = document.getElementById('sidebar');
-  // Toggle sidebar visibility
+
+  // Ensure the sidebar only toggles visibility without affecting its content
   toggleBtn.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
+    sidebar.classList.toggle('active'); // Toggles the 'active' class for visibility
   });
-</script>/html>
+
+  // Clean up or prevent unwanted elements (if dynamically added elsewhere)
+  document.querySelectorAll('a[href="#final-predictions-and-conclusion"]').forEach((el) => {
+    el.remove(); // Remove unwanted links dynamically
+  });
+</script>
+tml>
 
 
 
