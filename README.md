@@ -129,7 +129,6 @@
         </ul>
       </li>
       <li><a href="#feature-engineering">Feature Engineering</a></li>
-      <li><a href="#framing-the-prediction-problem">Prediction Problem</a></li>
       <li><a href="#model-training">Model Training</a>
         <ul>
           <li><a href="#baseline-model">Baseline Model</a></li>
@@ -151,7 +150,11 @@
 </body>
 </html>
 
-### >
+
+
+
+
+## >
 
 
 
