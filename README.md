@@ -111,6 +111,7 @@
       <li><a href="#introduction">Introduction</a></li>
         <ul>
           <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
+            <li><a href="#dataset-overview">Dataset Overview</a></li>
         </ul>
       <li><a href="#external-data">External Data</a></li>
       <li><a href="#data-cleaning">Data Cleaning</a></li>
@@ -180,8 +181,8 @@ The map below displays the origins of a sample of 1,000 taxi trips in Washington
     frameborder="0"
   ></iframe
 
-
-verview
+### Dataset Overview
+veriew
 
 ### External Data  
 
