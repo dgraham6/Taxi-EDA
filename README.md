@@ -97,7 +97,7 @@
 
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham5</h2>
+    <h2 class="project-tagline">Drake Graham6</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -108,32 +108,28 @@
   <div id="sidebar">
     <h2>  </h2>
     <ul>
-      <li><a href="#introduction">Introduction</a>
+      <li><a href="#introduction">Introduction</a></li>
         <ul>
           <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
         </ul>
-      </li>
       <li><a href="#external-data">External Data</a></li>
-      <li><a href="#data-cleaning">Data Cleaning</a>
+      <li><a href="#data-cleaning">Data Cleaning</a></li>
         <ul>
           <li><a href="#handling-missing-data">Missing Data</a></li>
           <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
         </ul>
-      </li>
-      <li><a href="#exploratory-data-analysis">Exploratory Data Analysis</a>
+      <li><a href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
         <ul>
           <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
           <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the Week</a></li>
           <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
         </ul>
-      </li>
       <li><a href="#feature-engineering">Feature Engineering</a></li>
-      <li><a href="#model-training">Model Training</a>
+      <li><a href="#model-training">Model Training</a></li>
         <ul>
           <li><a href="#baseline-model">Baseline Model</a></li>
           <li><a href="#final-model">Final Model</a></li>
         </ul>
-      </li>
     </ul>
   </div>
 
@@ -182,7 +178,10 @@ The map below displays the origins of a sample of 1,000 taxi trips in Washington
     width="800"
     height="300"
     frameborder="0"
-  ></iframe>verview
+  ></iframe
+
+
+verview
 
 ### External Data  
 
