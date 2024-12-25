@@ -1,13 +1,6 @@
 <html lang="en">
 <head>
-  <script>
-    const toggleBtn = document.getElementById('toggle-btn');
-    const sidebar = document.getElementById('sidebar');
-    toggleBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-    });
-  </script>
-  
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Title with Image</title>
@@ -110,37 +103,6 @@
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
   </header>
-
-  <button id="toggle-btn">☰ Table of Contents</button>
-
-  <div id="sidebar">
-    <h2>  </h2>
-    <ul>
-      <li><a href="#introduction">Introduction</a></li>
-        <ul>
-          <li><a href="#map-visualization-of-trip-origins">Map Visualization</a></li>
-            <li><a href="#dataset-overview">Dataset Overview</a></li>
-        </ul>
-      <li><a href="#external-data">External Data</a></li>
-      <li><a href="#data-cleaning">Data Cleaning</a></li>
-        <ul>
-          <li><a href="#handling-missing-data">Missing Data</a></li>
-          <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
-        </ul>
-      <li><a href="#exploratory-data-analysis">Exploratory Data Analysis</a></li>
-        <ul>
-          <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
-          <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the Week</a></li>
-          <li><a href="#average-trip-duration-by-day-and-hour">Average Trip Duration by Day and Hour</a></li>
-        </ul>
-      <li><a href="#feature-engineering">Feature Engineering</a></li>
-      <li><a href="#model-training">Model Training</a></li>
-        <ul>
-          <li><a href="#baseline-model">Baseline Model</a></li>
-          <li><a href="#final-model">Final Model</a></li>
-        </ul>
-    </ul>
-  </div>
 
 </body>
 </html>
