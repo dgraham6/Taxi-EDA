@@ -92,19 +92,16 @@
 </head>
 <body>
 
-  <!-- Page Header -->
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham21</h2>
+    <h2 class="project-tagline">Drake Graham1</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
   </header>
 
-  <!-- Toggle Button -->
   <button id="toggle-btn">☰ Table of Contents</button>
 
-  <!-- Sidebar -->
   <div id="sidebar">
     <h2>Table of Contents</h2>
     <ul>
@@ -140,18 +137,15 @@
   </div>
 
   <script>
-    // Get the toggle button and sidebar
     const toggleBtn = document.getElementById('toggle-btn');
     const sidebar = document.getElementById('sidebar');
 
-    // Toggle sidebar visibility
     toggleBtn.addEventListener('click', () => {
       sidebar.classList.toggle('active');
     });
   </script>
 
 </body>
-</html>
 tml>
 
 
