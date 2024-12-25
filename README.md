@@ -73,9 +73,12 @@
       list-style: none;
       padding: 0;
     }
-    #sidebar ul li a {
-      font-size: 0.9em;
-      color: #666;
+      #sidebar ul ul {
+        padding-left: 20px; 
+      }
+      #sidebar ul ul li a {
+        font-size: 0.9em; 
+        color: #666;
     }
     #toggle-btn {
       position: fixed;
@@ -94,7 +97,7 @@
 
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham1</h2>
+    <h2 class="project-tagline">Drake Graham2</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -103,7 +106,7 @@
   <button id="toggle-btn">☰ Table of Contents</button>
 
   <div id="sidebar">
-    <h2>Table of Contents</h2>
+    <h3>Table of Contents</h3>
     <ul>
       <li><a href="#introduction">Introduction</a>
         <ul>
@@ -148,7 +151,7 @@
 </body>
 </html>
 
-## >
+### >
 
 
 
