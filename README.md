@@ -152,27 +152,27 @@
 
 # Introduction  
 
-Did you know you spend around <span style="color:red">37,935</span> hours of your life driving? According to this [estimate](https://www.tempo.io/blog/how-do-people-spend-their-time#:~:text=According%20to%20a%20study%20done%20by%20the%20Harvard%20health), the average American spends a significant amount of their short life driving. 
+Did you know you spend around <span style="color:red">37,935</span> hours of your life driving? According to this [estimate](https://www.tempo.io/blog/how-do-people-spend-their-time#:~:text=According%20to%20a%20study%20done%20by%20the%20Harvard%20health), the average American spends a significant amount of their short life driving.
 
-Computer Science majors spend a lot of time trying to shave off milliseconds from their programs, so it follows that we might also want to spend the time to optimize such a time-consuming activity in all of our lives. If you're like me, you've always been curious about how software like Google Maps, Apple Maps, and Waze estimate ETAs and why there are differences between their given routes. 
+Computer Science majors spend a lot of time trying to shave off milliseconds from their programs, so it follows that we might also want to spend the time to optimize such a time-consuming activity in all of our lives. If you're like me, you've always been curious about how software like Google Maps, Apple Maps, and Waze estimate ETAs and why there are differences between their given routes.
 
-In this project, I'll attempt to estimate travel times from a large dataset of compl.ted taxi trips,
+In this project, I attempt to estimate travel times from a large dataset of completed taxi trips.
 
-I'm using the [Taxi Trips in 2024 in the District of Columbia dataset](https://catalog.data.gov/dataset/taxi-trips-in-2024) from the Department of For-Hire Vehicles, which is intended for public  The data is from the entire year of 2024. As of today, there are 10 taxi files combined, totaling over 2.4 million rows. The dataset includes 27 columns, with some of the most relevant for this project being the pickup and drop-off locations and trip duration., In this notebook, we explore taxi trip durations by first examining and visualizing the original dataset, addressing missing values, and engineering new features like trip distance and direction. Potential outliers are identified and removed to improve data reliability. 
+I used the [Taxi Trips in 2024 in the District of Columbia dataset](https://catalog.data.gov/dataset/taxi-trips-in-2024) from the Department of For-Hire Vehicles, which is intended for public use. The data is from the entire year of 2024. There are 11 taxi files combined, totaling over 2.4 million rows. The dataset includes 27 columns, with key ones being pickup and drop-off locations, trip duration, and mileage.
 
-To enhance the dataset, we incorporate external data, including hourly D.C weather details via the Open-Meteo API and theoretically fastest routes using the OSRM API. These additions allow us to analyze the effects of weather and route efficiency on trip durations.
+The end goal is to build a model that predicts trip duration with the all the infromation available when the taxi driver begins the trip.
 
-We analyze these features to understand their relationship with the target variable, `trip_duration`. Visualizations, including histograms and time-based trends, are used to uncover patterns, such as peak travel times and anomalies in short trip durations.
+To enhance the dataset, we incorporated external data, including hourly D.C. weather details via the Open-Meteo API and theoretically fastest routes using the OSRM API. These additions allow us to analyze the effects of weather and route efficiency on trip durations.
 
-A baseline regression model was developed using simple features and minimal preprocessing, achieving an RMSLE of 0.824. This serves as a starting point for comparison. To improve prediction accuracy, we engineer new features such as the geographic center of trips and polynomial terms, leveraging advanced preprocessing pipelines and hyperparameter tuning.
+We analyzed these features to understand their relationship with the target variable, `trip_duration`. Visualizations, including histograms and time-based trends, were used to uncover patterns, such as peak travel times and anomalies in short trip durations.
 
-Lastly, we briefly consider framing the problem as a classification challenge, offering additional perspectives for future work. This notebook concludes with the deployment of a refined XGBoost model to achieve a balance between complexity and prediction accuracy.
-ingle dataset.
+A baseline regression model was developed using simple features and minimal preprocessing, achieving an RMSLE of 0.824. This serves as a starting point for comparison. To improve prediction accuracy, we engineered new features such as the geographic center of trips and polynomial terms, leveraging advanced preprocessing pipelines and hyperparameter tuning.
 
+Finally, we experimented with different models before selecting the most appropriate one, forming our final predictions and conclusions.
 
 ### Map Visualization of Trip Origins  
 
-The map below displays the origins of a sample of 1,000 taxi trips in Washington, D.C., using marker points to represent the geographic distribution.  
+The map below displays the origins of a sample of 1,000 taxi trips origns in Washington, D.C. from our dataset, using marker points to represent the geographic distribution.  
 
 <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
   <iframe
@@ -185,11 +185,21 @@ The map below displays the origins of a sample of 1,000 taxi trips in Washington
 
 ### Dataset Overview
 
-### External Data  
+|   OBJECTID | TRIPTYPE   |   PROVIDERNAME |   FAREAMOUNT |   GRATUITYAMOUNT |   SURCHARGEAMOUNT |   EXTRAFAREAMOUNT |   TOLLAMOUNT |   TOTALAMOUNT |   PAYMENTTYPE | ORIGINCITY   | ORIGINSTATE   |   ORIGINZIP | DESTINATIONCITY   | DESTINATIONSTATE   | DESTINATIONZIP   |   MILEAGE |   DURATION |   ORIGIN_BLOCK_LATITUDE |   ORIGIN_BLOCK_LONGITUDE | ORIGIN_BLOCKNAME                |   DESTINATION_BLOCK_LAT |   DESTINATION_BLOCK_LONG | DESTINATION_BLOCKNAME         | AIRPORT   | ORIGINDATETIME_TR   | DESTINATIONDATETIME_TR   |
+|-----------:|:-----------|---------------:|-------------:|-----------------:|------------------:|------------------:|-------------:|--------------:|--------------:|:-------------|:--------------|------------:|:------------------|:-------------------|:-----------------|----------:|-----------:|------------------------:|-------------------------:|:--------------------------------|------------------------:|-------------------------:|:------------------------------|:----------|:--------------------|:-------------------------|
+|          1 | Ordinal    |            nan |       287.63 |             0    |              0.5  |               0   |          nan |        288.13 |             2 | Washington   | DC            |       20002 | Ruther Glen       | VA                 | 22546            |    113.7  |       8157 |                 38.9137 |                 -77.009  | 1700 BLOCK NORTH CAPITOL STREET |                nan      |                 nan      | nan                           | nan       | 10/01/2024 00:00    | 10/01/2024 03:00         |
+|          2 | Ordinal    |            nan |        20.67 |             0    |              0.5  |               0   |          nan |         21.17 |             2 | Washington   | DC            |       20401 | Washington        | DC                 | 20002            |      0.68 |       2228 |                 38.8999 |                 -77.0091 | 700 BLOCK NORTH CAPITOL STREET  |                 38.8969 |                 -77.0065 | UNIT BLOCK COLUMBUS CIRCLE NE | nan       | 10/01/2024 00:00    | 10/01/2024 03:00         |
+|          3 | Ordinal    |            nan |        17.17 |             0    |              0.25 |               2.5 |            0 |         19.67 |             4 | WASHINGTON   | DC            |       20020 | WASHINGTON        | DC                 | 1C               |      4.62 |        732 |                 38.8734 |                 -76.9664 | 1300 BLOCK 29TH STREET SE       |                 38.8855 |                 -77.0296 | 300 BLOCK 13TH STREET SW      | nan       | 10/01/2024 00:00    | 10/01/2024 00:00         |
+|          4 | Ordinal    |            nan |        38.84 |             0    |              0.25 |               0   |            0 |         39.09 |             6 | Washington   | DC            |       20024 | Hyattsville       | MD                 | 20782            |      8.59 |       1762 |                 38.884  |                 -77.0219 | 400 BLOCK 7TH STREET SW         |                nan      |                 nan      | nan                           | nan       | 10/01/2024 00:00    | 10/01/2024 01:00         |
+|          5 | Ordinal    |            nan |        75.36 |            15.17 |              0.5  |               0   |            0 |         91.03 |             1 | Washington   | DC            |       20004 | Sterling          | VA                 | 20166            |     27    |       2415 |                 38.8958 |                 -77.032  | 400 BLOCK 14TH STREET NW        |                nan      |                 nan      | nan                           | Y         | 10/01/2024 00:00    | 10/01/2024 01:00         |
+
+## External Data  
 
 Before diving deep into the taxi log data, we enhance our resources by retrieving hourly weather data using the [Open-Meteo API](https://open-meteo.com/) and performing a left merge with our taxi trip dataset. This additional weather data allows us to incorporate environmental factors, such as temperature, precipitation, and wind speed, that could impact travel times and driving conditions. Below is the two columns that could be very helpful in predicting trip duration.(1)
 
 To further enrich our dataset, we use the [OSRM API](http://project-osrm.org/) to obtain predicted fastest routes and route distances for each trip. This provides a reference for evaluating how the actual taxi routes compare to the optimal routes in terms of distance and duration. By merging these external datasets, we have more data to help deepen our analysis.(2)
+
+This external data will be used in our model as weather and predicted trip duration from a Multi-Level Dijkstra calucation is something a taxi driver would be aware of before the trip begins.
 
 <html lang="en">
 <head>
@@ -343,6 +353,9 @@ Another issue is the presence of extreme values in the `DURATION` and `DISTANCE`
 - While short trips (e.g., 3 minutes) are plausible, a trip lasting over three days or spanning more than 50 miles is not.  
 - Given that Washington, D.C., is approximately 50 miles wide, these outliers are highly unrealistic and can be safely removed due to their rarity.  
 
+To pair along with these logical checks we can refernce our new external data to find extreme difference 
+
+
 By addressing these issues, we significantly improve the quality and reliability of the dataset, ensuring that it is ready for analysis.
 
 
@@ -393,7 +406,7 @@ This overview helps identify travel patterns and peak times, valuable for optimi
 | **Sunday**    | 13.02  | 12.86  | 13.08  | 12.33  | 11.75  | 11.49  | 11.36  | 10.59  | 11.07  | 12.08  | 11.91  | 12.32  | 12.48  | 12.73  | 12.81  | 12.84  | 14.21  | 14.38  | 14.42  | 14.14  | 14.20  | 13.52  | 13.57  | 13.16  |
 | **Thursday**  | 12.71  | 12.32  | 12.39  | 11.71  | 11.21  |  9.29  | 10.77  | 11.93  | 12.66  | 13.80  | 14.05  | 14.43  | 15.54  | 15.75  | 14.83  | 14.57  | 14.83  | 14.67  | 14.88  | 15.94  | 16.63  | 16.95  | 14.rip durations.
 
-## Feature Engineering  
+# Feature Engineering  
 
 1. **Geographic Center of Trips (Latitude and Longitude):**  
    - **Reasoning:** This feature represents the midpoint between the origin and destination of each trip.  
@@ -421,6 +434,10 @@ This overview helps identify travel patterns and peak times, valuable for optimi
 
 ---
 
+
+
+# Model Training 
+
 ### Evaluation Metric  
 Our chosen evaluation metric is **Root Mean Squared Logarithmic Error (RMSLE)**. This metric is ideal for our problem because:  
 - It is robust to outliers and works well with skewed data.  
@@ -436,10 +453,7 @@ To ensure the model's predictions are realistic and feasible, we only use featur
 
 By adhering to these constraints, our model mimics real-world prediction scenarios and ensures that it is practical for use in applications like GPS software.
 
-
-# Model Training 
-
-## Baseline Model  
+### Baseline Model  
 
 To predict taxi trip durations, we developed a **baseline model** using a simple linear regression algorithm with a pipeline in `sklearn`. The pipeline ensures a systematic approach to preprocessing and training, making it easy to extend and refine later.
 
@@ -479,10 +493,10 @@ This score indicates that, on average, the model's predictions differ from the t
 This reflects the limitations of the baseline model, which used minimal feature engineering and preprocessing. While it provides a starting point for understanding the data, the RMSLE score highlights significant room for improvement in capturing the complexity of trip duration predictions.
 
 
-## Model Selection
+### Model Selection
 
 
-## Final Model  
+### Final Model  
 
 The **final model** improves upon the baseline by incorporating thoughtfully engineered features and leveraging hyperparameter tuning to refine performance.
 
