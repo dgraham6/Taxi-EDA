@@ -190,7 +190,7 @@ The map below displays the origins of a sample of 1,000 taxi trips in Washington
   ></iframe>
 </div>
 
-### Data set Overview
+## Data set Overview
 
 ### External Data  
 
