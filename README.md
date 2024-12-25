@@ -84,15 +84,15 @@
         color: #666;
     }
     #toggle-btn {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      background-color: #333;
+      position: fixed; /* Ensures it is positioned relative to the viewport */
+      top: 10px; /* Adjusts the button's position from the top */
+      left: 10px; /* Adjusts the button's position from the left */
+      background-color: #333; /* Keeps the button background color */
       color: #fff;
       border: none;
       padding: 10px 15px;
       cursor: pointer;
-      z-index: 1000;
+      z-index: 1000; /* Ensures it stays above other elements */
     }
   </style>
 </head>
@@ -110,8 +110,7 @@
   <button id="toggle-btn">☰ Table of Contents</button>
 
   <div id="sidebar">
-    <h2>Table of Contents</h2>
-    <h3>Table of Contents</h3>
+    <h2></h2>
     <ul>
       <li><a href="#introduction">Introduction</a>
         <ul>
