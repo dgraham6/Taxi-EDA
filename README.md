@@ -97,8 +97,7 @@
 
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham4</h2>
-    <h2 class="project-tagline">Drake Graham5</h2>
+    <h2 class="project-tagline">Drake Graham</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -170,6 +169,7 @@ A baseline regression model was developed using simple features and minimal prep
 Lastly, we briefly consider framing the problem as a classification challenge, offering additional perspectives for future work. This notebook concludes with the deployment of a refined XGBoost model to achieve a balance between complexity and prediction accuracy.
 ingle dataset.
 
+
 ### Map Visualization of Trip Origins  
 
 The map below displays the origins of a sample of 1,000 taxi trips in Washington, D.C., using marker points to represent the geographic distribution.  
@@ -182,7 +182,8 @@ The map below displays the origins of a sample of 1,000 taxi trips in Washington
     frameborder="0"
   ></iframe>
 </div>
-### Data set Overview
+
+### Dataset Overview
 
 ### External Data  
 
