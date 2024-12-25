@@ -73,9 +73,6 @@
       list-style: none;
       padding: 0;
     }
-    #sidebar ul li a {
-      font-size: 0.9em;
-      color: #666;
       #sidebar ul ul {
         padding-left: 20px; 
       }
@@ -84,15 +81,15 @@
         color: #666;
     }
     #toggle-btn {
-      position: fixed; /* Ensures it is positioned relative to the viewport */
-      top: 10px; /* Adjusts the button's position from the top */
-      left: 10px; /* Adjusts the button's position from the left */
-      background-color: #333; /* Keeps the button background color */
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: #333;
       color: #fff;
       border: none;
       padding: 10px 15px;
       cursor: pointer;
-      z-index: 1000; /* Ensures it stays above other elements */
+      z-index: 1000;
     }
   </style>
 </head>
@@ -100,8 +97,8 @@
 
   <header class="page-header" role="banner">
     <h1 class="project-name">Driven to Discover: A Data-Driven Analysis and Prediction of Taxi Trip Durations</h1>
-    <h2 class="project-tagline">Drake Graham1</h2>
-    <h2 class="project-tagline">Drake Graham2</h2>
+    <h2 class="project-tagline">Drake Graham4</h2>
+    <h2 class="project-tagline">Drake Graham5</h2>
     <h3 class="project-tagline">dgraham7362@gmail.com</h3>
     <a href="https://github.com/dgraham6/Taxi-EDA" class="btn" style="background-color: #8ec27c; color: black;">View on GitHub</a>
     <a href="https://www.linkedin.com/in/drake-graham-a82048240/" class="btn" style="background-color: #8ec27c; color: black;">LinkedIn</a>
@@ -110,7 +107,7 @@
   <button id="toggle-btn">☰ Table of Contents</button>
 
   <div id="sidebar">
-    <h2></h2>
+    <h2>  </h2>
     <ul>
       <li><a href="#introduction">Introduction</a>
         <ul>
@@ -125,7 +122,7 @@
           <li><a href="#outliers-and-extreme-values">Extreme Values</a></li>
         </ul>
       </li>
-      <li><a href="#data-analysis">Exploratory Data Analysis</a>
+      <li><a href="#exploratory-data-analysis">Exploratory Data Analysis</a>
         <ul>
           <li><a href="#trip-duration-analysis">Trip Duration Analysis</a></li>
           <li><a href="#average-trip-duration-by-day-of-the-week">Average Trip Duration by Day of the Week</a></li>
@@ -133,7 +130,6 @@
         </ul>
       </li>
       <li><a href="#feature-engineering">Feature Engineering</a></li>
-      <li><a href="#framing-the-prediction-problem">Prediction Problem</a></li>
       <li><a href="#model-training">Model Training</a>
         <ul>
           <li><a href="#baseline-model">Baseline Model</a></li>
