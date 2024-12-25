@@ -156,11 +156,6 @@
 </body>
 </html>
 
-## >
-### >
-
-
-
 # Introduction  
 
 Did you know you spend around <span style="color:red">37,935</span> hours of your life driving? According to this [estimate](https://www.tempo.io/blog/how-do-people-spend-their-time#:~:text=According%20to%20a%20study%20done%20by%20the%20Harvard%20health), the average American spends a significant amount of their short life driving. 
