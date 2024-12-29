@@ -371,8 +371,8 @@ After removing the outliers, we can finally visualize what we aim to predict. By
 
 <iframe
   src="Duration_Distributions.jpeg"
-  width="100"
-  height="60"
+  width="800"
+  height="400"
   frameborder="0"
 ></iframe>
 
@@ -442,8 +442,8 @@ After adding more features we can observe correlation in this correlation matrix
 
 <iframe
   src="matrix.html"
-  width="100"
-  height="700"
+  width="800"
+  height="400"
   frameborder="0"
 ></iframe>
 
