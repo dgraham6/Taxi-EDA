@@ -370,7 +370,7 @@ By addressing these issues, we significantly improve the quality and reliability
 After removing the outliers, we can finally visualize what we aim to predict. By creating this graph, we can gain a better understanding of the distribution of trip durations in the dataset. Below is the resulting histogram when comparing our predicted vs actual duration values:
 
 <iframe
-  src="background.png"
+  src="Duration_Distributions.jpeg"
   width="800"
   height="600"
   frameborder="0"
@@ -442,8 +442,8 @@ After adding more features we can observe correlation in this correlation matrix
 
 <iframe
   src="matrix.html"
-  width="800"
-  height="500"
+  width="100"
+  height="700"
   frameborder="0"
 ></iframe>
 
