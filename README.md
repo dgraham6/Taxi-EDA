@@ -158,7 +158,7 @@ Computer Science majors spend a lot of time trying to shave off milliseconds fro
 
 In this project, I attempt to estimate travel times from a large dataset of completed taxi trips.
 
-I used the [Taxi Trips in 2024 in the District of Columbia dataset](https://catalog.data.gov/dataset/taxi-trips-in-2024) from the Department of For-Hire Vehicles, which is intended for public use. The data is from the entire year of 2024. There are 11 taxi files combined, totaling over 2.4 million rows. The dataset includes 27 columns, with key ones being pickup and drop-off locations, trip duration, and mileage.
+I used the [Taxi Trips in 2024 in the District of Columbia dataset](https://catalog.data.gov/dataset/taxi-trips-in-2024) from the Department of For-Hire Vehicles, which is intended for public use. Interesting enough D.C has the [2nd worst traffic in the country](https://www.fox5dc.com/news/dc-ranked-2nd-city-with-worst-traffic-in-the-country-baltimore-ranked-in-the-top-10). The data is from the entire year of 2024. There are 11 taxi files combined, totaling over 2.4 million rows. The dataset includes 27 columns, with key ones being pickup and drop-off locations, trip duration, and mileage.
 
 The end goal is to build a model that predicts trip duration with the all the infromation available when the taxi driver begins the trip.
 
@@ -195,9 +195,9 @@ The map below displays the origins of a sample of 1,000 taxi trips origns in Was
 
 ## External Data  
 
-Before diving deep into the taxi log data, we enhance our resources by retrieving hourly weather data using the [Open-Meteo API](https://open-meteo.com/) and performing a left merge with our taxi trip dataset. This additional weather data allows us to incorporate environmental factors, such as temperature, precipitation, and wind speed, that could impact travel times and driving conditions. Below is the two columns that could be very helpful in predicting trip duration.(1)
+Before diving deep into the taxi log data, we enhance our resources by retrieving hourly weather data using the [Open-Meteo API](https://open-meteo.com/) and performing a left merge with our taxi trip dataset. This additional weather data allows us to incorporate environmental factors, such as temperature, precipitation, and wind speed, that could impact travel times and driving conditions. Below is the two columns that could be very helpful in predicting trip duration. Well aslo be including weather data from vsiualcrossing.com to smooth out any inconsistencis.(1)
 
-To further enrich our dataset, we use the [OSRM API](http://project-osrm.org/) to obtain predicted fastest routes and route distances for each trip. This provides a reference for evaluating how the actual taxi routes compare to the optimal routes in terms of distance and duration. By merging these external datasets, we have more data to help deepen our analysis.(2)
+To further enrich our dataset, we use the [OSRM API](http://project-osrm.org/) to obtain predicted fastest routes, route distances and steps for each trip. This provides a reference for evaluating how the actual taxi routes compare to the optimal routes in terms of distance and duration. By merging these external datasets, we have more data to help deepen our analysis.(2)
 
 This external data will be used in our model as weather and predicted trip duration from a Multi-Level Dijkstra calucation is something a taxi driver would be aware of before the trip begins.
 
@@ -284,6 +284,7 @@ This external data will be used in our model as weather and predicted trip durat
           <th>id</th>
           <th>duration(s)</th>
           <th>distance(m)</th>
+          <th>steps</th>
         </tr>
       </thead>
       <tbody>
@@ -291,26 +292,31 @@ This external data will be used in our model as weather and predicted trip durat
           <td>1</td>
           <td>102.1</td>
           <td>1000.2</td>
+          <td>7</td>
         </tr>
         <tr>
           <td>2</td>
           <td>498.6</td>
           <td>6198.7</td>
+          <td>7</td>
         </tr>
         <tr>
           <td>3</td>
           <td>295.9</td>
           <td>3659.3</td>
+          <td>14</td>
         </tr>
         <tr>
           <td>4</td>
           <td>133.3</td>
           <td>1647.7</td>
+          <td>10</td>
         </tr>
         <tr>
           <td>5</td>
           <td>208.7</td>
           <td>2348.6</td>
+          <td>4</td>
         </tr>
       </tbody>
     </table>
@@ -353,25 +359,24 @@ Another issue is the presence of extreme values in the `DURATION` and `DISTANCE`
 - While short trips (e.g., 3 minutes) are plausible, a trip lasting over three days or spanning more than 50 miles is not.  
 - Given that Washington, D.C., is approximately 50 miles wide, these outliers are highly unrealistic and can be safely removed due to their rarity.  
 
-To pair along with these logical checks we can refernce our new external data to find extreme difference 
-
+To pair along with these logical checks we can reference our new external data to find extreme differences and outliers such as finding trips with zero distance traveled yet a large duration. 
 
 By addressing these issues, we significantly improve the quality and reliability of the dataset, ensuring that it is ready for analysis.
-
 
 # Exploratory Data Analysis
 
 ### Trip Duration Analysis  
 
-After removing the outliers, we can finally visualize what we aim to predict. By creating this graph, we can gain a better understanding of the distribution of trip durations in the dataset. Below is the resulting histogram:
+After removing the outliers, we can finally visualize what we aim to predict. By creating this graph, we can gain a better understanding of the distribution of trip durations in the dataset. Below is the resulting histogram when comparing our predicted vs actual duration values:
 
 <iframe
-  src="duration_histogram.html"
+  src="plot.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
-By observing the distribution, we notice a significant number of trips with durations close to 0 seconds in our dataset. While very short taxi trips are possible, these are likely due to human errors, such as prematurely stopping and restarting trips. Apart from this anomaly, the distribution appears to be fairly symmetric and roughly normal, centered around 600 seconds (or 10 minutes). As the duration increases, there are a few scattered outliers, but the majority of the data fits within a consistent range.
+
+By observing the distribution, we first notice that our predicted quickest route duration graph contains smaller values as expected, and a significant number of recored trips have durations close to 0 seconds in our dataset. While very short taxi trips are possible, these are likely due to human errors, such as prematurely stopping and restarting trips. Apart from this anomaly, the distribution appears to be fairly symmetric and roughly normal, centered around 600 seconds (or 10 minutes). As the duration increases, there are a few scattered outliers, but the majority of the data fits within a consistent range.
 
 ### Average Trip Duration by Day of the Week  
 
@@ -385,6 +390,7 @@ The chart below illustrates the variation in trip durations throughout the week.
   height="400"
   frameborder="0"
 ></iframe>
+
 ### Average Trip Duration by Day and Hour
 
 This table summarizes the **average trip duration (in minutes)** across different days of the week and hours of the day (0–23). Each row represents a specific day, and each column corresponds to an hour.
@@ -409,32 +415,37 @@ This overview helps identify travel patterns and peak times, valuable for optimi
 # Feature Engineering  
 
 1. **Geographic Center of Trips (Latitude and Longitude):**  
-   - **Reasoning:** This feature represents the midpoint between the origin and destination of each trip.  
-   - **Why it’s Good:**  
-     - Traffic congestion and road density are often centralized in urban areas. By adding the center point, the model can implicitly account for potential delays in high-traffic zones.
-     - This feature captures information that a simple start and endpoint cannot convey.
+   - This feature represents the midpoint between the origin and destination of each trip, calculated as the average of the starting and ending coordinates.  
+   - By including this spatial feature, the model captures urban density characteristics and potential delays in centralized, high-traffic zones. It enhances the model's ability to identify congestion patterns that a simple analysis of origin and destination coordinates might overlook.
 
 2. **Trip Direction (Categorical):**  
-   - **Reasoning:** Encodes the cardinal direction of the trip, such as NorthEast or SouthWest.  
-   - **Why it’s Good:**  
-     - Different directions may encounter varying traffic patterns and road conditions (e.g., trips heading downtown may face more congestion than trips leaving the city).
-     - Directional information helps the model learn interesitng dependencies without directly relying on longitude and latitude differences.
+   - Encodes the trip's cardinal direction (e.g., NorthEast, SouthWest) based on the relative position of the origin and destination.  
+   - Traffic conditions and road layouts vary by direction, such as increased congestion in inbound city routes during peak hours compared to outbound routes. This feature enables the model to incorporate these directional dependencies.
 
 3. **Trip Distance (Haversine Formula):**  
-   - **Reasoning:** Calculates the great-circle distance between the origin and destination points.  
-   - **Why it’s Good:**  
-     - Distance directly correlates with trip duration; longer distances inherently take more time.
-     - The Haversine formula accounts for the curvature of the Earth, providing a precise measurement that is crucial for trips spanning large geographic areas.
+   - Computes the great-circle distance between the origin and destination, which accounts for the curvature of the Earth.  
+   - This distance metric provides a more accurate estimation of trip length over large geographic areas compared to straight-line (Euclidean) calculations. As trip distance is strongly correlated with duration, this feature forms a foundational predictor for the model.
 
 4. **Polynomial Features (Degree 2):**  
-   - **Reasoning:** Non-linear relationships exist between numerical features (e.g., distance and duration).  
-   - **Why it’s Good:**  
-     - The squared and interaction terms enable the model to capture non-linear patterns, such as how the duration might increase disproportionately with distance in high-congestion areas.
-     - For example, polynomial features allow the model to understand that the impact of traffic on short trips differs from its impact on longer trips.
+   - Generates squared terms and interaction terms for numerical features such as distance, time, and weather-related variables.  
+   - These features help the model identify non-linear relationships. For instance, the impact of distance on trip duration might not be linear, especially in traffic-prone regions where longer distances amplify delays disproportionately.
 
----
+5. **Categorical Encoding:**  
+   - Applies one-hot encoding to categorical columns, ensuring compatibility with linear models and enabling the model to recognize distinct categories without imposing ordinal relationships.  
+   - This step is critical for processing features such as day of the week, vehicle type, or provider name effectively.
 
+6. **High Traffic Areas:**  
+   - Introduces binary indicators for trips passing through known high-traffic regions based on insights from traffic reports and studies.  
+   - For example, the [Top 10 List of Worst Areas for Traffic Jams in the D.C. Region](https://wtop.com/dc-transit/2022/12/top-10-list-shows-worst-areas-for-traffic-jams-in-the-dc-region/) is used to identify congestion hotspots. These areas are flagged in the dataset to allow the model to adjust for delays attributable to known traffic bottlenecks.
 
+After adding more features we can observe correlation in this correlation matrix.
+
+<iframe
+  src="matrix.html"
+  width="700"
+  height="400"
+  frameborder="0"
+></iframe>
 
 # Model Training 
 
@@ -447,7 +458,8 @@ Our chosen evaluation metric is **Root Mean Squared Logarithmic Error (RMSLE)**.
 Although RMSLE is sensitive to small target values, this is acceptable in our context, as shorter trips are common in urban environments like Washington, D.C., and accurately predicting these is crucial.
 
 To ensure the model's predictions are realistic and feasible, we only use features that a taxi driver or dispatch service would have access to at the start of the trip. For example:  
-- **Weather data** is available from real-time weather APIs.  
+- **Weather data** is available from real-time weather APIs.
+- **Shortest route duration** is calculated using an implementation of Dijkstra’s shortest path algorithm, forming the foundation of our prediction.
 - **Time of day** and **day of the week** are trivial to compute from the trip start time.  
 - **Geographic coordinates** are often known if the trip is pre-scheduled or provided via a ride-hailing app.  
 
@@ -480,18 +492,12 @@ The pipeline implemented the following steps:
 2. **Regression Model:**  
    - A simple **Linear Regression** model was chosen to establish a baseline.  
 
-### Evaluation Metric  
-We evaluated the model using **Root Mean Squared Logarithmic Error (RMSLE)** to measure performance. RMSLE is well-suited for our task because:  
-- It is robust to outliers.  
-- It emphasizes relative errors, making it appropriate for predicting highly skewed trip durations.  
-
 ### Results and Analysis  
 After training the model on 80% of the dataset and testing on the remaining 20%, the baseline model achieved an **RMSLE score of 0.824**.  
 
 This score indicates that, on average, the model's predictions differ from the true values by a factor of approximately **2.28** (calculated as e^0.824). For instance, if the actual trip duration is 10 minutes, the model typically predicts a duration in the range of 4.39 minutes (10 ÷ 2.28) to 22.8 minutes (10 × 2.28).  
 
 This reflects the limitations of the baseline model, which used minimal feature engineering and preprocessing. While it provides a starting point for understanding the data, the RMSLE score highlights significant room for improvement in capturing the complexity of trip duration predictions.
-
 
 ### Model Selection
 
