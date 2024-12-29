@@ -370,7 +370,7 @@ By addressing these issues, we significantly improve the quality and reliability
 After removing the outliers, we can finally visualize what we aim to predict. By creating this graph, we can gain a better understanding of the distribution of trip durations in the dataset. Below is the resulting histogram when comparing our predicted vs actual duration values:
 
 <iframe
-  src="duration_length_distributions.html"
+  src="Duration_Distributions.png"
   width="800"
   height="600"
   frameborder="0"
@@ -438,7 +438,7 @@ This overview helps identify travel patterns and peak times, valuable for optimi
    - Introduces binary indicators for trips passing through known high-traffic regions based on insights from traffic reports and studies.  
    - For example, the [Top 10 List of Worst Areas for Traffic Jams in the D.C. Region](https://wtop.com/dc-transit/2022/12/top-10-list-shows-worst-areas-for-traffic-jams-in-the-dc-region/) is used to identify congestion hotspots. These areas are flagged in the dataset to allow the model to adjust for delays attributable to known traffic bottlenecks.
 
-After adding more features we can observe correlation in this correlation matrix.
+After adding more features we can observe correlation in this correlation matrix with only the feautres with a correlation greater than 0.05 with our target variable.
 
 <iframe
   src="matrix.html"
