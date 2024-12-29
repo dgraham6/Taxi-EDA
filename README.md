@@ -385,8 +385,8 @@ We can also analyze an important relationship between the amount of steps (direc
 <div style="text-align: center;">
     <iframe
       src="hexa.jpeg"
-      width="800"
-      height="600"
+      width="700"
+      height="500"
       frameborder="0"
   ></iframe>
 </div>
