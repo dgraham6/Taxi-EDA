@@ -393,34 +393,12 @@ Using the timestamp data and pandas' datetime features, we created a new column,
 
 The chart below illustrates the variation in trip durations throughout the week. This analysis can provide insights into how trip lengths vary on weekdays versus weekends.  
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Centered iframe</title>
-  <style>
-    /* CSS to center the iframe */
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; /* Full height */
-      margin: 0; /* Remove default margins */
-    }
-    iframe {
-      border: 0; /* Optional: Remove border */
-    }
-  </style>
-</head>
-<body>
-  <iframe
-    src="trip_count_by_day.html"
-    width="700"
-    height="500"
-    frameborder="0"
-  ></iframe>
-</body>
-</html>
+<iframe
+  src="trip_count_by_day.html"
+  width="700"
+  height="500"
+  frameborder="0"
+></iframe>
 
 ### Average Trip Duration by Day and Hour
 
