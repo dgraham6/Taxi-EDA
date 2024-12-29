@@ -441,7 +441,7 @@ This overview helps identify travel patterns and peak times, valuable for optimi
 After adding more features we can observe correlation in this correlation matrix.
 
 <iframe
-  src="plot.html"
+  src="trip_count_by_day.html"
   width="640"
   height="480"
   frameborder="0"
