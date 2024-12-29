@@ -369,12 +369,14 @@ By addressing these issues, we significantly improve the quality and reliability
 
 After removing the outliers, we can finally visualize what we aim to predict. By creating this graph, we can gain a better understanding of the distribution of trip durations in the dataset. Below is the resulting histogram when comparing our predicted vs actual duration values:
 
-<iframe
-  src="Duration_Distributions.jpeg"
-  width="800"
-  height="420"
-  frameborder="0"
-></iframe>
+<div style="text-align: center;">
+    <iframe
+    src="Duration_Distributions.jpeg"
+    width="800"
+    height="420"
+    frameborder="0"
+    ></iframe>
+</div>
 
 By observing the distribution, we first notice that our predicted quickest route duration graph contains smaller values as expected, and a significant number of recored trips have durations close to 0 seconds in our dataset. While very short taxi trips are possible, these are likely due to human errors, such as prematurely stopping and restarting trips. Apart from this anomaly, the distribution appears to be fairly symmetric and roughly normal, centered around 600 seconds (or 10 minutes). As the duration increases, there are a few scattered outliers, but the majority of the data fits within a consistent range.
 
@@ -386,7 +388,7 @@ We can also analyze an important relationship between the amount of steps (direc
       width="800"
       height="600"
       frameborder="0"
-    ></iframe>
+  ></iframe>
 </div>
 
 ### Average Trip Duration by Day of the Week  
@@ -453,13 +455,14 @@ This overview helps identify travel patterns and peak times, valuable for optimi
 
 After adding more features we can observe correlation in this correlation matrix with only the feautres with a correlation greater than 0.05 with our target variable.
 
-<iframe
-  src="matrix.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
-
+<div style="text-align: center;">
+    <iframe
+      src="matrix.html"
+      width="800"
+      height="600"
+      frameborder="0"
+    ></iframe>
+</div>
 
 # Model Training 
 
