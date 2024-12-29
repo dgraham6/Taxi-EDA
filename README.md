@@ -371,8 +371,8 @@ After removing the outliers, we can finally visualize what we aim to predict. By
 
 <iframe
   src="Duration_Distributions.jpeg"
-  width="800"
-  height="600"
+  width="100"
+  height="60"
   frameborder="0"
 ></iframe>
 
