@@ -421,6 +421,7 @@ The chart below illustrates the variation in trip durations throughout the week.
   ></iframe>
 </body>
 </html>
+
 ### Average Trip Duration by Day and Hour
 
 This table summarizes the **average trip duration (in minutes)** across different days of the week and hours of the day (0–23). Each row represents a specific day, and each column corresponds to an hour.
