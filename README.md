@@ -440,6 +440,14 @@ This overview helps identify travel patterns and peak times, valuable for optimi
 
 After adding more features we can observe correlation in this correlation matrix.
 
+<iframe
+  src="duration_length_distributions.html"
+  width="700"
+  height="400"
+  frameborder="0"
+></iframe>
+
+
 # Model Training 
 
 ### Evaluation Metric  
