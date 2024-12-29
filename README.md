@@ -442,8 +442,8 @@ After adding more features we can observe correlation in this correlation matrix
 
 <iframe
   src="matrix.html"
-  width="700"
-  height="400"
+  width="1000"
+  height="800"
   frameborder="0"
 ></iframe>
 
