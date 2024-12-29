@@ -370,7 +370,7 @@ By addressing these issues, we significantly improve the quality and reliability
 After removing the outliers, we can finally visualize what we aim to predict. By creating this graph, we can gain a better understanding of the distribution of trip durations in the dataset. Below is the resulting histogram when comparing our predicted vs actual duration values:
 
 <iframe
-  src="Duration_Distributions.png"
+  src="Duration_Distributions.jpeg"
   width="800"
   height="600"
   frameborder="0"
