@@ -380,12 +380,14 @@ By observing the distribution, we first notice that our predicted quickest route
 
 We can also analyze an important relationship between the amount of steps (directions like turn left) and trip duration.
 
-<iframe
-  src="hexa.jpeg"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
+<div style="text-align: center;">
+    <iframe
+      src="hexa.jpeg"
+      width="800"
+      height="600"
+      frameborder="0"
+    ></iframe>
+</div>
 
 ### Average Trip Duration by Day of the Week  
 
@@ -393,12 +395,14 @@ Using the timestamp data and pandas' datetime features, we created a new column,
 
 The chart below illustrates the variation in trip durations throughout the week. This analysis can provide insights into how trip lengths vary on weekdays versus weekends.  
 
-<iframe
-  src="trip_count_by_day.html"
-  width="700"
-  height="500"
-  frameborder="0"
-></iframe>
+<div style="text-align: center;">
+  <iframe
+    src="trip_count_by_day.html"
+    width="800"
+    height="600"
+    frameborder="0"
+  ></iframe>
+</div>
 
 ### Average Trip Duration by Day and Hour
 
