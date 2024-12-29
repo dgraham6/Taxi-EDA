@@ -383,7 +383,7 @@ We can also analyze an important relationship between the amount of steps (direc
 <iframe
   src="hexa.jpeg"
   width="800"
-  height="420"
+  height="450"
   frameborder="0"
 ></iframe>
 
@@ -395,8 +395,8 @@ The chart below illustrates the variation in trip durations throughout the week.
 
 <iframe
   src="trip_count_by_day.html"
-  width="700"
-  height="400"
+  width="800"
+  height="600"
   frameborder="0"
 ></iframe>
 
