@@ -383,7 +383,7 @@ We can also analyze an important relationship between the amount of steps (direc
 <iframe
   src="hexa.jpeg"
   width="800"
-  height="450"
+  height="600"
   frameborder="0"
 ></iframe>
 
