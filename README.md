@@ -467,6 +467,7 @@ After adding more features we can observe correlation in this correlation matrix
 # Model Training 
 
 ### Evaluation Metric  
+
 Our chosen evaluation metric is **Root Mean Squared Logarithmic Error (RMSLE)**. This metric is ideal for our problem because:  
 - It is robust to outliers and works well with skewed data.  
 - It focuses on relative differences rather than absolute ones, which is suitable for predicting durations that can vary widely.  
@@ -484,32 +485,12 @@ By adhering to these constraints, our model mimics real-world prediction scenari
 
 ### Baseline Model  
 
-To predict taxi trip durations, we developed a **baseline model** using a simple linear regression algorithm with a pipeline in `sklearn`. The pipeline ensures a systematic approach to preprocessing and training, making it easy to extend and refine later.
+To predict taxi trip durations, we developed a **baseline model** using a simple linear regression algorithm with a pipeline in `sklearn`.
 
-### Features  
-We used two types of features in our baseline model:  
-
-1. **Quantitative Features** (Numerical):  
-   - Includes all numerical columns in the dataset.  
-   - **Preprocessing:** Missing values were imputed using the mean, and values were scaled using `StandardScaler` to normalize the feature distributions.  
-
-2. **Nominal Features** (Categorical):  
-   - Includes all non-numerical columns in the dataset.  
-   - **Preprocessing:** Missing values were imputed with the placeholder value `"Unknown"`, and one-hot encoding was applied to convert categories into binary indicators.  
-
-Features dropped from the dataset include:
-- `AIRPORT`, as it had too many missing or irrelevant values.  
-- `DURATION` and related columns like `log_duration`, since they are directly related to the target variable and would lead to data leakage.
-
-### Model Pipeline  
-The pipeline implemented the following steps:  
-1. **Preprocessing:**  
-   - Numerical features: Imputation and scaling.  
-   - Categorical features: Imputation and one-hot encoding.  
-2. **Regression Model:**  
-   - A simple **Linear Regression** model was chosen to establish a baseline.  
+The baseline model used only the features included in the orginal model.
 
 ### Results and Analysis  
+
 After training the model on 80% of the dataset and testing on the remaining 20%, the baseline model achieved an **RMSLE score of 0.824**.  
 
 This score indicates that, on average, the model's predictions differ from the true values by a factor of approximately **2.28** (calculated as e^0.824). For instance, if the actual trip duration is 10 minutes, the model typically predicts a duration in the range of 4.39 minutes (10 ÷ 2.28) to 22.8 minutes (10 × 2.28).  
@@ -518,41 +499,62 @@ This reflects the limitations of the baseline model, which used minimal feature 
 
 ### Model Selection
 
+To determine the best model for predicting taxi trip durations, we evaluated Ridge Regression, Lasso Regression, CatBoost, XGBoost, and a blended model approach. Each model was tested using 5-fold cross-validation and hyperparameter tuning, with Root Mean Squared Logarithmic Error (RMSLE) as the evaluation metric. Ridge and Lasso offered simplicity and interpretability but struggled to capture non-linear relationships. CatBoost and XGBoost performed better, leveraging gradient boosting to handle complex patterns effectively. However, LightGBM outperformed all other models due to its speed, scalability, and ability to handle missing values and categorical features. Its robust regularization and flexibility made it the optimal choice for both training and validation datasets.
 
 ### Final Model  
 
-The **final model** improves upon the baseline by incorporating thoughtfully engineered features and leveraging hyperparameter tuning to refine performance.
+The **final model**, built with LightGBM, significantly outperforms the baseline by integrating thoughtfully engineered features and optimizing hyperparameters to refine performance. These enhancements captured the complex relationships in the data, enabling more accurate predictions.
 
+### Model Pipeline  
 
-### Modeling Algorithm and Hyperparameter Tuning  
+The model pipeline included the following steps:  
+1. **Preprocessing:**  
+   - **Numerical Features:** Imputed missing values and applied scaling.  
+   - **Categorical Features:** Imputed missing values and applied one-hot encoding.  
+2. **Regression Model:**  
+   - LightGBM was chosen for its speed, scalability, and ability to handle large datasets and complex patterns.  
 
-1. **Algorithm:**  
-   - The final model used **Linear Regression**.  
-   - **Why Linear Regression:**  
-     - It provides a transparent and interpretable baseline for understanding the effects of the new features.  
-     - Linear Regression pairs well with polynomial features, effectively capturing non-linear trends without the complexity of tree-based models.  
+### Hyperparameter Tuning  
 
-2. **Hyperparameter Tuning:**  
-   - **Parameter Tuned:** Degree of polynomial features (`1, 2, 3`).  
-   - **Method:** Used `GridSearchCV` with 5-fold cross-validation to identify the optimal degree of polynomial features.  
-   - **Best Hyperparameter:** Degree = 2.  
-     - Higher degrees (e.g., 3) added unnecessary complexity without improving performance.  
-     - Degree 2 captured key non-linear relationships without overfitting.  
+- **Method:** GridSearchCV with 5-fold cross-validation.  
+- **Best Hyperparameters:**  
+  - `max_depth`: 20  
+  - `num_leaves`: 4000  
+  - `feature_fraction`: 0.9  
+  - `learning_rate`: 0.1  
+  - `n_estimators`: 500  
 
----
+These parameters allowed the model to balance accuracy and generalization effectively without overfitting. 
+
 
 ### Results and Analysis  
 
 - **Baseline Model:**  
   - **RMSLE Score:** 0.824  
-  - **Limitations:** Relied on minimal preprocessing and did not incorporate domain-specific knowledge or non-linear relationships.  
+  - **Limitations:** Minimal feature engineering and preprocessing resulted in poor performance on non-linear and complex relationships.  
 
 - **Final Model:**  
-  - **RMSLE Score:** 0.657 
+  - **RMSLE Score:** 0.1121  
   - **Why the Improvement:**  
-    - New features such as distance, center, and direction added contextual information.  
-    - Polynomial features allowed the model to understand non-linear interactions, particularly between distance, time, and other trip-specific variables.  
+    - Features like trip distance, geographic center, and direction added critical contextual information.  
+    - LightGBM captures non-linear interactions like distance and duration inherently, outperforming linear regression which requires manual transformations. 
 
-This improvement demonstrates the importance of thoughtful feature engineering and hyperparameter tuning in creating a model that better aligns with the real-world data generating process.
+This demonstrates the importance of feature engineering and hyperparameter optimization in building a model that aligns closely with the real-world data generation process.
 
 # Final Predictions and Conclusion
+
+We can visulize the distribution of our final predcitions on the unseen test data.
+
+<div style="text-align: center;">
+    <iframe
+    src="final_pred.jpeg"
+    width="800"
+    height="420"
+    frameborder="0"
+    ></iframe>
+</div>
+
+
+The final LightGBM model demonstrated exceptional performance, significantly improving prediction accuracy compared to the baseline. The visualization of predictions on unseen test data confirms the model's ability to generalize well and effectively capture the relationships in the dataset. These results highlight the importance of combining robust algorithms, thoughtful feature engineering, and hyperparameter tuning to achieve high-quality predictions. This model provides a strong foundation for real-world applications, such as optimizing taxi routes or estimating travel times in similar scenarios.
+
+
