@@ -3,6 +3,9 @@
 **Website**: [Project Website](https://dgraham6.github.io/Taxi-EDA/)  
 **LinkedIn**: [Drake Graham](https://www.linkedin.com/feed/)  
 
+index.md is the website code
+Work-Resources contains various files of unsorted work
+
 ## Project Summary
 
 This project takes a deep dive into taxi trip durations using a large dataset of over 2.4 million taxi rides in Washington, D.C., from 2024. It looks at the data to find patterns and builds models to predict trip times more accurately. By adding extra data like weather conditions and the fastest routes, the project shows how using outside factors can improve predictions.
