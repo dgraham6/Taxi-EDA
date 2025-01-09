@@ -3,8 +3,8 @@
 **Website**: [Project Website](https://dgraham6.github.io/Taxi-EDA/)  
 **LinkedIn**: [Drake Graham](https://www.linkedin.com/feed/)  
 
-index.md is the website code
-Work-Resources contains various files of unsorted work
+- `index.md` contains the main code for the website.
+- `Work-Resources` directory holds various unsorted work files.
 
 ## Project Summary
 
